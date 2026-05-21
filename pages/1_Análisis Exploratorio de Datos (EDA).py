@@ -499,6 +499,7 @@ if df is not None:
         if len(cat_cols_chart) > 0:
             col_chart_p1, col_chart_p2 = st.columns([1, 2])
             with col_chart_p1:
+                st.markdown("<h3 style='font-family:\"Space Grotesk\"; color:#22D3EE; margin-bottom:15px; font-size:1.4rem;'>🎛️ Panel de Telemetría</h3>", unsafe_allow_html=True)
                 selected_pie_col = st.selectbox(
                     "Selecciona variable para distribución circular:", 
                     options=cat_cols_chart, 
@@ -547,15 +548,14 @@ if df is not None:
                 
                 range_colors = range_colors[:len(domain_vals)]
                 
-                # Interactive selection for legend highlighting
+                # Interactive selections (Legend click + Mouseover Hover Glow)
                 legend_selection = alt.selection_point(fields=[selected_pie_col], bind='legend')
+                hover_selection = alt.selection_point(on='mouseover', clear='mouseout')
                 
                 if "Dona" in tipo_grafico_circular:
                     pie_chart = alt.Chart(pie_counts).mark_arc(
-                        innerRadius=75, 
-                        outerRadius=120,
-                        stroke="#000000",
-                        strokeWidth=2
+                        innerRadius=120, 
+                        outerRadius=180
                     ).encode(
                         theta=alt.Theta("Cantidad:Q", stack=True),
                         color=alt.Color(
@@ -563,12 +563,15 @@ if df is not None:
                             scale=alt.Scale(domain=domain_vals, range=range_colors),
                             legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
                         ),
-                        opacity=alt.condition(legend_selection, alt.value(1.0), alt.value(0.25)),
+                        stroke=alt.condition(hover_selection, alt.value('#FFFFFF'), alt.value('rgba(255, 255, 255, 0.15)')),
+                        strokeWidth=alt.condition(hover_selection, alt.value(3.5), alt.value(1.2)),
+                        opacity=alt.condition(legend_selection, alt.value(0.9), alt.value(0.25)),
                         tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
                     ).add_params(
-                        legend_selection
+                        legend_selection,
+                        hover_selection
                     ).properties(
-                        height=380
+                        height=500
                     ).configure_view(
                         strokeOpacity=0
                     )
@@ -576,9 +579,7 @@ if df is not None:
                 elif "Pie" in tipo_grafico_circular:
                     pie_chart = alt.Chart(pie_counts).mark_arc(
                         innerRadius=0, 
-                        outerRadius=120,
-                        stroke="#000000",
-                        strokeWidth=2
+                        outerRadius=180
                     ).encode(
                         theta=alt.Theta("Cantidad:Q", stack=True),
                         color=alt.Color(
@@ -586,12 +587,15 @@ if df is not None:
                             scale=alt.Scale(domain=domain_vals, range=range_colors),
                             legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
                         ),
-                        opacity=alt.condition(legend_selection, alt.value(1.0), alt.value(0.25)),
+                        stroke=alt.condition(hover_selection, alt.value('#FFFFFF'), alt.value('rgba(255, 255, 255, 0.15)')),
+                        strokeWidth=alt.condition(hover_selection, alt.value(3.5), alt.value(1.2)),
+                        opacity=alt.condition(legend_selection, alt.value(0.9), alt.value(0.25)),
                         tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
                     ).add_params(
-                        legend_selection
+                        legend_selection,
+                        hover_selection
                     ).properties(
-                        height=380
+                        height=500
                     ).configure_view(
                         strokeOpacity=0
                     )
@@ -599,35 +603,34 @@ if df is not None:
                 elif "Rosa" in tipo_grafico_circular:
                     pie_counts["Angulo"] = 1
                     pie_chart = alt.Chart(pie_counts).mark_arc(
-                        innerRadius=25,
-                        stroke="#000000",
-                        strokeWidth=1.5
+                        innerRadius=35
                     ).encode(
                         theta=alt.Theta("Angulo:Q", stack=True),
-                        radius=alt.Radius("Cantidad:Q", scale=alt.Scale(type="sqrt", range=[45, 135])),
+                        radius=alt.Radius("Cantidad:Q", scale=alt.Scale(type="sqrt", range=[60, 200])),
                         color=alt.Color(
                             f"{selected_pie_col}:N", 
                             scale=alt.Scale(domain=domain_vals, range=range_colors),
                             legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
                         ),
-                        opacity=alt.condition(legend_selection, alt.value(1.0), alt.value(0.25)),
+                        stroke=alt.condition(hover_selection, alt.value('#FFFFFF'), alt.value('rgba(255, 255, 255, 0.15)')),
+                        strokeWidth=alt.condition(hover_selection, alt.value(3.5), alt.value(1.2)),
+                        opacity=alt.condition(legend_selection, alt.value(0.9), alt.value(0.25)),
                         tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
                     ).add_params(
-                        legend_selection
+                        legend_selection,
+                        hover_selection
                     ).properties(
-                        height=380
+                        height=500
                     ).configure_view(
                         strokeOpacity=0
                     )
                     
                 else: # Anillos Concéntricos (Radial Bar Chart)
                     pie_counts = pie_counts.reset_index(drop=True)
-                    pie_counts["r_inner"] = 35 + pie_counts.index * 15
-                    pie_counts["r_outer"] = 47 + pie_counts.index * 15
+                    pie_counts["r_inner"] = 60 + pie_counts.index * 22
+                    pie_counts["r_outer"] = 78 + pie_counts.index * 22
                     
                     pie_chart = alt.Chart(pie_counts).mark_arc(
-                        stroke="#000000",
-                        strokeWidth=1,
                         strokeOpacity=0.5
                     ).encode(
                         theta=alt.Theta("Porcentaje:Q", scale=alt.Scale(domain=[0, 100], range=[0, 270])),
@@ -638,17 +641,45 @@ if df is not None:
                             scale=alt.Scale(domain=domain_vals, range=range_colors),
                             legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
                         ),
-                        opacity=alt.condition(legend_selection, alt.value(1.0), alt.value(0.25)),
+                        stroke=alt.condition(hover_selection, alt.value('#FFFFFF'), alt.value('rgba(255, 255, 255, 0.08)')),
+                        strokeWidth=alt.condition(hover_selection, alt.value(3.5), alt.value(1.2)),
+                        opacity=alt.condition(legend_selection, alt.value(0.9), alt.value(0.25)),
                         tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
                     ).add_params(
-                        legend_selection
+                        legend_selection,
+                        hover_selection
                     ).properties(
-                        height=380
+                        height=500
                     ).configure_view(
                         strokeOpacity=0
                     )
                 
+                # Render the high-end circular chart
                 st.altair_chart(pie_chart, use_container_width=True)
+                
+            # Render a gorgeous HUD metrics overlay inside the control panel
+            with col_chart_p1:
+                st.markdown("<h4 style='font-family:\"Space Grotesk\"; color:#E2E8F0; margin-top:20px; font-size:1.1rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom:6px;'>📊 Telemetría de Proporciones</h4>", unsafe_allow_html=True)
+                for i, row in pie_counts.iterrows():
+                    color = range_colors[i % len(range_colors)]
+                    st.markdown(f"""
+                    <div style="
+                        background: rgba(11, 15, 25, 0.45);
+                        border-left: 4px solid {color};
+                        border-radius: 8px;
+                        padding: 10px 14px;
+                        margin-bottom: 8px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+                        border: 1px solid rgba(255,255,255,0.02);
+                        transition: transform 0.2s ease-in-out;
+                    ">
+                        <span style="font-family: 'Outfit'; color: #CBD5E1; font-size: 0.9rem; font-weight: 500;">{row[selected_pie_col]}</span>
+                        <span style="font-family: 'Outfit'; color: {color}; font-size: 0.95rem; font-weight: 700;">{row['Porcentaje']}% <span style='color:#64748B; font-size:0.8rem; font-weight:400;'>({row['Cantidad']})</span></span>
+                    </div>
+                    """, unsafe_allow_html=True)
         else:
             st.info("El dataset no contiene variables categóricas para graficar proporciones circulares.")
             
