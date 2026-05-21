@@ -25,7 +25,7 @@ def verificar_estructura():
         "requirements.txt": "📦 Dependencias Python",
         ".gitignore": "🚫 Archivo git ignore",
         "README.md": "📖 Documentación",
-        "Desarrollos_de_software_20260319.csv": "📊 Dataset ejemplo"
+        "Accidentes_de_tránsito_reportados_en_los_municipios_que_tienen_convenio_con_la_Gerencia_de_Seguridad_Vial_de_Antioquia_20260521.csv": "📊 Dataset ejemplo"
     }
     
     carpetas_requeridas = {

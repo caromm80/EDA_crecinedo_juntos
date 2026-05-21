@@ -138,12 +138,12 @@ def map_custom_labels(df):
         # Map GRAVEDAD if present to human-readable labels
         if 'GRAVEDAD' in df.columns:
             gravity_mapping = {
-                'h': 'Con Heridos 👤',
-                'd': 'Solo Daños 🚗',
-                'm': 'Con Muertos 💀',
-                'H': 'Con Heridos 👤',
-                'D': 'Solo Daños 🚗',
-                'M': 'Con Muertos 💀'
+                'h': 'Con Heridos',
+                'd': 'Solo Daños',
+                'm': 'Con Muertos',
+                'H': 'Con Heridos',
+                'D': 'Solo Daños',
+                'M': 'Con Muertos'
             }
             df['GRAVEDAD'] = df['GRAVEDAD'].replace(gravity_mapping)
     return df
@@ -235,6 +235,10 @@ if tipo_origen == "Local Engine (CSV)":
     col_form1, col_form2 = st.columns(2)
     
     csv_files = [f for f in os.listdir(".") if f.endswith(".csv")]
+    target_file = "Accidentes_de_tránsito_reportados_en_los_municipios_que_tienen_convenio_con_la_Gerencia_de_Seguridad_Vial_de_Antioquia_20260521.csv"
+    if target_file in csv_files:
+        csv_files.remove(target_file)
+        csv_files.insert(0, target_file)
     
     with col_form1:
         if csv_files:
@@ -479,8 +483,8 @@ if df is not None:
                             alt.GradientStop(color='#22D3EE', offset=1)
                         ]
                     )
-                ).encode(
-                    x=alt.X("Categoria:N", sort=None, title=selected_cat_col, axis=alt.Axis(labelAngle=-45, labelColor='#94A3B8', titleColor='#CBD5E1')),
+                                ).encode(
+                    x=alt.X("Categoria:N", sort='-y', title=selected_cat_col, axis=alt.Axis(labelAngle=-45, labelColor='#94A3B8', titleColor='#CBD5E1')),
                     y=alt.Y("Cantidad:Q", title="Frecuencia Absoluta", axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
                     tooltip=["Categoria", "Cantidad"]
                 ).properties(
@@ -657,11 +661,21 @@ if df is not None:
                 # Render the high-end circular chart
                 st.altair_chart(pie_chart, use_container_width=True)
                 
-            # Render a gorgeous HUD metrics overlay inside the control panel
+             # Render a gorgeous HUD metrics overlay inside the control panel
             with col_chart_p1:
                 st.markdown("<h4 style='font-family:\"Space Grotesk\"; color:#E2E8F0; margin-top:20px; font-size:1.1rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom:6px;'>📊 Telemetría de Proporciones</h4>", unsafe_allow_html=True)
                 for i, row in pie_counts.iterrows():
                     color = range_colors[i % len(range_colors)]
+                    cat_name = row['Categoria']
+                    if cat_name == 'Con Heridos':
+                        cat_display = 'Con Heridos 👤'
+                    elif cat_name == 'Solo Daños':
+                        cat_display = 'Solo Daños 🚗'
+                    elif cat_name == 'Con Muertos':
+                        cat_display = 'Con Muertos 💀'
+                    else:
+                        cat_display = cat_name
+                        
                     st.markdown(f"""
                     <div style="
                         background: rgba(11, 15, 25, 0.45);
@@ -676,7 +690,7 @@ if df is not None:
                         border: 1px solid rgba(255,255,255,0.02);
                         transition: transform 0.2s ease-in-out;
                     ">
-                        <span style="font-family: 'Outfit'; color: #CBD5E1; font-size: 0.9rem; font-weight: 500;">{row['Categoria']}</span>
+                        <span style="font-family: 'Outfit'; color: #CBD5E1; font-size: 0.9rem; font-weight: 500;">{cat_display}</span>
                         <span style="font-family: 'Outfit'; color: {color}; font-size: 0.95rem; font-weight: 700;">{row['Porcentaje']}% <span style='color:#64748B; font-size:0.8rem; font-weight:400;'>({row['Cantidad']})</span></span>
                     </div>
                     """, unsafe_allow_html=True)
