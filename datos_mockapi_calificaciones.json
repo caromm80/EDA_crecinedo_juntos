@@ -1,0 +1,452 @@
+[
+  {
+    "id": "1",
+    "Estudiante": "Daniel Felipe Martínez",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 1.9,
+    "Nota_Final": 2.3,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "2",
+    "Estudiante": "Carolina María Gómez",
+    "Curso": "Ingeniería de Requisitos",
+    "Docente": "Dra. Sandra Castro",
+    "Nota_Parcial": 1.8,
+    "Nota_Final": 1.8,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "3",
+    "Estudiante": "Brandon Estiven Ciro",
+    "Curso": "Programación Python",
+    "Docente": "Ing. Carlos Pérez",
+    "Nota_Parcial": 1.8,
+    "Nota_Final": 1.5,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "4",
+    "Estudiante": "Britany Montoya Torres",
+    "Curso": "Ingeniería de Requisitos",
+    "Docente": "Dra. Sandra Castro",
+    "Nota_Parcial": 1.6,
+    "Nota_Final": 1.3,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "5",
+    "Estudiante": "Juan Pablo Rodríguez",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 4.0,
+    "Nota_Final": 4.0,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "6",
+    "Estudiante": "Sofía Valentina Ramírez",
+    "Curso": "Desarrollo Web",
+    "Docente": "Ing. Luis Ruiz",
+    "Nota_Parcial": 3.6,
+    "Nota_Final": 4.1,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "7",
+    "Estudiante": "Mateo Alejandro Castro",
+    "Curso": "Programación Python",
+    "Docente": "Ing. Carlos Pérez",
+    "Nota_Parcial": 4.2,
+    "Nota_Final": 3.8,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "8",
+    "Estudiante": "Valentina Ruiz Díaz",
+    "Curso": "Desarrollo Web",
+    "Docente": "Ing. Luis Ruiz",
+    "Nota_Parcial": 2.7,
+    "Nota_Final": 2.3,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "9",
+    "Estudiante": "Santiago Andrés Ramos",
+    "Curso": "Introducción a la IA",
+    "Docente": "Msc. Juan Díaz",
+    "Nota_Parcial": 1.9,
+    "Nota_Final": 1.8,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "10",
+    "Estudiante": "Mariana Lucía Hernández",
+    "Curso": "Introducción a la IA",
+    "Docente": "Msc. Juan Díaz",
+    "Nota_Parcial": 4.5,
+    "Nota_Final": 4.7,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "11",
+    "Estudiante": "Andrés Felipe Muñoz",
+    "Curso": "Programación Python",
+    "Docente": "Ing. Carlos Pérez",
+    "Nota_Parcial": 4.1,
+    "Nota_Final": 4.3,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "12",
+    "Estudiante": "Gabriela Isabel Sánchez",
+    "Curso": "Desarrollo Web",
+    "Docente": "Ing. Luis Ruiz",
+    "Nota_Parcial": 1.8,
+    "Nota_Final": 1.6,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "13",
+    "Estudiante": "Diego Luis Pérez",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 3.7,
+    "Nota_Final": 4.3,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "14",
+    "Estudiante": "Laura Camila Torres",
+    "Curso": "Ingeniería de Requisitos",
+    "Docente": "Dra. Sandra Castro",
+    "Nota_Parcial": 2.2,
+    "Nota_Final": 1.7,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "15",
+    "Estudiante": "Alejandro José Álvarez",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 2.3,
+    "Nota_Final": 2.1,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "16",
+    "Estudiante": "Paula Andrea Cardona",
+    "Curso": "Programación Python",
+    "Docente": "Ing. Carlos Pérez",
+    "Nota_Parcial": 4.5,
+    "Nota_Final": 5.0,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "17",
+    "Estudiante": "Nicolás David Restrepo",
+    "Curso": "Desarrollo Web",
+    "Docente": "Ing. Luis Ruiz",
+    "Nota_Parcial": 2.5,
+    "Nota_Final": 2.8,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "18",
+    "Estudiante": "Valeria Sofía Ospina",
+    "Curso": "Introducción a la IA",
+    "Docente": "Msc. Juan Díaz",
+    "Nota_Parcial": 2.1,
+    "Nota_Final": 2.0,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "19",
+    "Estudiante": "Sebastián Andrés Herrera",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 2.4,
+    "Nota_Final": 3.1,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "20",
+    "Estudiante": "Manuela Salazar Duque",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 1.7,
+    "Nota_Final": 2.0,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "21",
+    "Estudiante": "Felipe Antonio Ortiz",
+    "Curso": "Ingeniería de Requisitos",
+    "Docente": "Dra. Sandra Castro",
+    "Nota_Parcial": 4.1,
+    "Nota_Final": 3.7,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "22",
+    "Estudiante": "Daniela Patricia Martínez",
+    "Curso": "Desarrollo Web",
+    "Docente": "Ing. Luis Ruiz",
+    "Nota_Parcial": 2.4,
+    "Nota_Final": 3.1,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "23",
+    "Estudiante": "José Manuel Rentería",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 3.4,
+    "Nota_Final": 3.8,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "24",
+    "Estudiante": "Sara Isabel Londoño",
+    "Curso": "Programación Python",
+    "Docente": "Ing. Carlos Pérez",
+    "Nota_Parcial": 2.3,
+    "Nota_Final": 1.7,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "25",
+    "Estudiante": "David Esteban Vargas",
+    "Curso": "Introducción a la IA",
+    "Docente": "Msc. Juan Díaz",
+    "Nota_Parcial": 2.9,
+    "Nota_Final": 2.4,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "26",
+    "Estudiante": "Natalia Inés Monsalve",
+    "Curso": "Ingeniería de Requisitos",
+    "Docente": "Dra. Sandra Castro",
+    "Nota_Parcial": 4.6,
+    "Nota_Final": 4.4,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "27",
+    "Estudiante": "Juan David Villa",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 3.2,
+    "Nota_Final": 3.8,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "28",
+    "Estudiante": "Lucía Mercedes Henao",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 3.1,
+    "Nota_Final": 2.9,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "29",
+    "Estudiante": "Carlos Mario Yepes",
+    "Curso": "Bases de Datos",
+    "Docente": "Dra. Martha Gómez",
+    "Nota_Parcial": 4.1,
+    "Nota_Final": 4.3,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "30",
+    "Estudiante": "Andrea Carolina Marín",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 3.5,
+    "Nota_Final": 4.2,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "31",
+    "Estudiante": "Luis Fernando Agudelo",
+    "Curso": "Desarrollo Web",
+    "Docente": "Ing. Luis Ruiz",
+    "Nota_Parcial": 2.8,
+    "Nota_Final": 3.6,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "32",
+    "Estudiante": "Ana María Gutiérrez",
+    "Curso": "Bases de Datos",
+    "Docente": "Dra. Martha Gómez",
+    "Nota_Parcial": 3.3,
+    "Nota_Final": 2.8,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "33",
+    "Estudiante": "Miguel Ángel Serna",
+    "Curso": "Programación Python",
+    "Docente": "Ing. Carlos Pérez",
+    "Nota_Parcial": 4.5,
+    "Nota_Final": 4.1,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "34",
+    "Estudiante": "Camila Fernanda Rojas",
+    "Curso": "Bases de Datos",
+    "Docente": "Dra. Martha Gómez",
+    "Nota_Parcial": 4.3,
+    "Nota_Final": 4.3,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "35",
+    "Estudiante": "Jorge Eliecer Giraldo",
+    "Curso": "Programación Python",
+    "Docente": "Ing. Carlos Pérez",
+    "Nota_Parcial": 2.8,
+    "Nota_Final": 3.0,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "36",
+    "Estudiante": "Diana Marcela Alzate",
+    "Curso": "Desarrollo Web",
+    "Docente": "Ing. Luis Ruiz",
+    "Nota_Parcial": 3.4,
+    "Nota_Final": 4.2,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "37",
+    "Estudiante": "Oscar Mauricio Toro",
+    "Curso": "Programación Python",
+    "Docente": "Ing. Carlos Pérez",
+    "Nota_Parcial": 3.9,
+    "Nota_Final": 3.5,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "38",
+    "Estudiante": "Sandra Milena Holguín",
+    "Curso": "Ingeniería de Requisitos",
+    "Docente": "Dra. Sandra Castro",
+    "Nota_Parcial": 4.1,
+    "Nota_Final": 4.6,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "39",
+    "Estudiante": "Edwin Alberto Valencia",
+    "Curso": "Introducción a la IA",
+    "Docente": "Msc. Juan Díaz",
+    "Nota_Parcial": 1.9,
+    "Nota_Final": 1.9,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "40",
+    "Estudiante": "Liliana María Bedoya",
+    "Curso": "Desarrollo Web",
+    "Docente": "Ing. Luis Ruiz",
+    "Nota_Parcial": 1.5,
+    "Nota_Final": 1.9,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "41",
+    "Estudiante": "Héctor Fabio Benítez",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 2.4,
+    "Nota_Final": 2.5,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "42",
+    "Estudiante": "Claudia Patricia Orozco",
+    "Curso": "Bases de Datos",
+    "Docente": "Dra. Martha Gómez",
+    "Nota_Parcial": 3.3,
+    "Nota_Final": 2.8,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "43",
+    "Estudiante": "Juan Camilo Suárez",
+    "Curso": "Arquitectura de Software",
+    "Docente": "Ing. Andrés Torres",
+    "Nota_Parcial": 2.5,
+    "Nota_Final": 2.8,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "44",
+    "Estudiante": "Beatriz Elena Rivera",
+    "Curso": "Ingeniería de Requisitos",
+    "Docente": "Dra. Sandra Castro",
+    "Nota_Parcial": 2.2,
+    "Nota_Final": 2.1,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "45",
+    "Estudiante": "Gustavo Adolfo Palacios",
+    "Curso": "Bases de Datos",
+    "Docente": "Dra. Martha Gómez",
+    "Nota_Parcial": 3.4,
+    "Nota_Final": 3.9,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "46",
+    "Estudiante": "Martha Cecilia Rúa",
+    "Curso": "Ingeniería de Requisitos",
+    "Docente": "Dra. Sandra Castro",
+    "Nota_Parcial": 4.7,
+    "Nota_Final": 4.9,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "47",
+    "Estudiante": "Alexander de Jesús Blandón",
+    "Curso": "Desarrollo Web",
+    "Docente": "Ing. Luis Ruiz",
+    "Nota_Parcial": 1.6,
+    "Nota_Final": 2.3,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "48",
+    "Estudiante": "Yolanda Cristina Quintero",
+    "Curso": "Introducción a la IA",
+    "Docente": "Msc. Juan Díaz",
+    "Nota_Parcial": 2.3,
+    "Nota_Final": 2.0,
+    "Resultado": "Reprobado"
+  },
+  {
+    "id": "49",
+    "Estudiante": "César Augusto Jaramillo",
+    "Curso": "Ingeniería de Requisitos",
+    "Docente": "Dra. Sandra Castro",
+    "Nota_Parcial": 4.8,
+    "Nota_Final": 4.3,
+    "Resultado": "Aprobado"
+  },
+  {
+    "id": "50",
+    "Estudiante": "Britany Estefanía Montoya",
+    "Curso": "Desarrollo Web",
+    "Docente": "Ing. Luis Ruiz",
+    "Nota_Parcial": 4.4,
+    "Nota_Final": 5.0,
+    "Resultado": "Aprobado"
+  }
+]

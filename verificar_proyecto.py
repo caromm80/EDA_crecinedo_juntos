@@ -8,6 +8,12 @@ estén presentes y correctamente configurados.
 import os
 import sys
 
+# Reconfigurar la codificación de la consola para evitar errores con emojis en Windows
+try:
+    sys.stdout.reconfigure(encoding='utf-8')
+except AttributeError:
+    pass # Para versiones de Python muy antiguas
+
 def verificar_estructura():
     """Verifica la estructura del proyecto"""
     print("=" * 60)

@@ -1,0 +1,119 @@
+============================================================
+TABLA: Estudiantes (Copiar desde la línea de abajo hasta el final de la tabla)
+============================================================
+id	Nombre	Edad	Genero	Ciudad	Promedio	Estado	Materias_Inscritas	Creditos_Aprobados	Estrato	Asistencia
+1	Rania Al-Abdullah	24	Femenino	Doha	4.0	Activo	4	43	2	99
+2	Amir El-Amin	22	Masculino	Casablanca	3.83	Activo	8	80	1	94
+3	Amira El-Fadhel	21	Femenino	Casablanca	4.31	Activo	7	39	3	87
+4	Samir Al-Jamil	28	Masculino	Doha	2.88	En Riesgo	8	34	3	77
+5	Zainab Al-Harbi	26	Femenino	El Cairo	3.67	Activo	6	17	3	92
+6	Youssef Al-Fayed	24	Masculino	Doha	3.41	Activo	7	22	4	91
+7	Aisha Al-Hassan	27	Femenino	Mascate	4.94	Egresado	5	28	2	97
+8	Tareq Bin-Ziyad	29	Masculino	Mascate	3.99	Activo	4	76	2	76
+9	Layla Bint-Khalid	18	Femenino	Riad	3.68	Activo	6	22	4	95
+10	Omar Al-Khattab	20	Masculino	Abu Dabi	4.04	Activo	6	54	2	91
+11	Khadija El-Shamy	21	Femenino	Dubái	4.1	Activo	6	44	4	99
+12	Karim Al-Mansour	23	Masculino	Mascate	4.81	Activo	4	88	2	94
+13	Basma Al-Taji	19	Femenino	El Cairo	2.8	En Riesgo	5	34	2	88
+14	Hassan El-Saad	21	Masculino	Amán	4.43	Activo	4	44	1	86
+15	Yasmin Al-Farsi	28	Femenino	El Cairo	3.75	Activo	3	86	1	85
+16	Farid Al-Farsi	24	Masculino	Casablanca	3.34	Activo	6	61	4	86
+17	Habiba Al-Masri	19	Femenino	Riad	4.7	Activo	5	63	4	82
+18	Ali Ben-Youssef	28	Masculino	Doha	4.13	Activo	5	25	3	81
+19	Hala Al-Rashed	28	Femenino	Doha	3.46	Activo	6	22	4	88
+20	Ziad Al-Ghazali	19	Masculino	Abu Dabi	4.77	Activo	5	73	2	83
+21	Noor Al-Huda	22	Femenino	Casablanca	4.92	Activo	7	32	3	87
+22	Idris Al-Hadi	27	Masculino	Mascate	2.99	En Riesgo	5	37	3	75
+23	Salma Al-Otaibi	29	Femenino	Abu Dabi	4.91	Egresado	4	33	3	96
+24	Hamza Al-Sayed	29	Masculino	Doha	3.52	Activo	5	63	1	78
+25	Farida Al-Sabah	26	Femenino	Doha	2.5	En Riesgo	5	33	4	81
+26	Mustafa Al-Hassan	29	Masculino	Casablanca	3.67	Activo	7	89	3	81
+27	Fatima Al-Zahra	19	Femenino	Abu Dabi	2.69	En Riesgo	3	19	4	84
+28	Rami El-Khoury	26	Masculino	Abu Dabi	2.99	En Riesgo	3	62	4	100
+29	Mariam Al-Mansour	22	Femenino	Mascate	3.32	Activo	4	69	4	88
+30	Zayd Ibn-Harith	23	Masculino	Abu Dabi	3.02	Activo	6	85	4	80
+
+
+============================================================
+TABLA: Cursos (Copiar desde la línea de abajo hasta el final de la tabla)
+============================================================
+ID	Nombre	Código	Docente	Créditos	Alumnos_Inscritos
+501	Ciencia de Datos Aplicada	CD501	Dr. Yasser Al-Mansoori	4	25
+502	Inteligencia Artificial Avanzada	IA502	Dra. Fatma Al-Saeed	4	25
+503	Machine Learning y Modelos	ML503	Dr. Hisham Al-Ghamdi	3	15
+504	Visualización e Historias de Datos	VD504	Ing. Rania El-Sherbiny	3	12
+505	Bases de Datos NoSQL y Cloud	BD505	Dr. Khaled Al-Mutairi	4	17
+
+
+============================================================
+TABLA: Calificaciones (Copiar desde la línea de abajo hasta el final de la tabla)
+============================================================
+ID	Estudiante	Curso	Docente	Nota_Parcial	Nota_Final	Resultado
+1	Rania Al-Abdullah	Visualización e Historias de Datos	Ing. Rania El-Sherbiny	3.6	3.2	Aprobado
+2	Amir El-Amin	Visualización e Historias de Datos	Ing. Rania El-Sherbiny	2.2	2.5	Reprobado
+3	Amira El-Fadhel	Ciencia de Datos Aplicada	Dr. Yasser Al-Mansoori	3.7	3.8	Aprobado
+4	Samir Al-Jamil	Ciencia de Datos Aplicada	Dr. Yasser Al-Mansoori	3.7	3.7	Aprobado
+5	Zainab Al-Harbi	Inteligencia Artificial Avanzada	Dra. Fatma Al-Saeed	2.4	3.0	Aprobado
+6	Youssef Al-Fayed	Visualización e Historias de Datos	Ing. Rania El-Sherbiny	2.1	2.0	Reprobado
+7	Aisha Al-Hassan	Inteligencia Artificial Avanzada	Dra. Fatma Al-Saeed	3.7	3.6	Aprobado
+8	Tareq Bin-Ziyad	Visualización e Historias de Datos	Ing. Rania El-Sherbiny	2.2	2.6	Reprobado
+9	Layla Bint-Khalid	Inteligencia Artificial Avanzada	Dra. Fatma Al-Saeed	4.4	4.0	Aprobado
+10	Omar Al-Khattab	Inteligencia Artificial Avanzada	Dra. Fatma Al-Saeed	2.8	3.1	Aprobado
+11	Khadija El-Shamy	Ciencia de Datos Aplicada	Dr. Yasser Al-Mansoori	3.7	3.4	Aprobado
+12	Karim Al-Mansour	Bases de Datos NoSQL y Cloud	Dr. Khaled Al-Mutairi	2.5	2.4	Reprobado
+13	Basma Al-Taji	Bases de Datos NoSQL y Cloud	Dr. Khaled Al-Mutairi	2.2	2.5	Reprobado
+14	Hassan El-Saad	Inteligencia Artificial Avanzada	Dra. Fatma Al-Saeed	4.5	4.2	Aprobado
+15	Yasmin Al-Farsi	Ciencia de Datos Aplicada	Dr. Yasser Al-Mansoori	2.1	2.2	Reprobado
+16	Farid Al-Farsi	Visualización e Historias de Datos	Ing. Rania El-Sherbiny	2.5	3.0	Aprobado
+17	Habiba Al-Masri	Inteligencia Artificial Avanzada	Dra. Fatma Al-Saeed	3.8	4.2	Aprobado
+18	Ali Ben-Youssef	Bases de Datos NoSQL y Cloud	Dr. Khaled Al-Mutairi	2.5	2.9	Reprobado
+19	Hala Al-Rashed	Machine Learning y Modelos	Dr. Hisham Al-Ghamdi	4.4	4.4	Aprobado
+20	Ziad Al-Ghazali	Machine Learning y Modelos	Dr. Hisham Al-Ghamdi	2.5	2.1	Reprobado
+21	Noor Al-Huda	Visualización e Historias de Datos	Ing. Rania El-Sherbiny	3.9	4.0	Aprobado
+22	Idris Al-Hadi	Ciencia de Datos Aplicada	Dr. Yasser Al-Mansoori	2.7	3.3	Aprobado
+23	Salma Al-Otaibi	Ciencia de Datos Aplicada	Dr. Yasser Al-Mansoori	4.3	5.0	Aprobado
+24	Hamza Al-Sayed	Bases de Datos NoSQL y Cloud	Dr. Khaled Al-Mutairi	3.3	3.8	Aprobado
+25	Farida Al-Sabah	Ciencia de Datos Aplicada	Dr. Yasser Al-Mansoori	4.6	4.3	Aprobado
+26	Mustafa Al-Hassan	Inteligencia Artificial Avanzada	Dra. Fatma Al-Saeed	4.3	4.2	Aprobado
+27	Fatima Al-Zahra	Machine Learning y Modelos	Dr. Hisham Al-Ghamdi	3.8	4.0	Aprobado
+28	Rami El-Khoury	Ciencia de Datos Aplicada	Dr. Yasser Al-Mansoori	2.9	2.6	Reprobado
+29	Mariam Al-Mansour	Ciencia de Datos Aplicada	Dr. Yasser Al-Mansoori	4.6	5.0	Aprobado
+30	Zayd Ibn-Harith	Machine Learning y Modelos	Dr. Hisham Al-Ghamdi	2.9	3.0	Aprobado
+
+
+============================================================
+TABLA: Inscripciones (Copiar desde la línea de abajo hasta el final de la tabla)
+============================================================
+ID	Estudiante	Curso	Fecha_Inscripcion	Progreso_%
+1	Rania Al-Abdullah	Ciencia de Datos Aplicada	2026-03-12	42
+2	Amir El-Amin	Inteligencia Artificial Avanzada	2026-03-22	78
+3	Amira El-Fadhel	Machine Learning y Modelos	2026-03-11	94
+4	Samir Al-Jamil	Machine Learning y Modelos	2026-03-27	91
+5	Zainab Al-Harbi	Ciencia de Datos Aplicada	2026-03-27	64
+6	Youssef Al-Fayed	Machine Learning y Modelos	2026-03-08	79
+7	Aisha Al-Hassan	Bases de Datos NoSQL y Cloud	2026-03-23	49
+8	Tareq Bin-Ziyad	Ciencia de Datos Aplicada	2026-03-28	88
+9	Layla Bint-Khalid	Machine Learning y Modelos	2026-03-13	87
+10	Omar Al-Khattab	Visualización e Historias de Datos	2026-03-23	72
+11	Khadija El-Shamy	Inteligencia Artificial Avanzada	2026-03-17	51
+12	Karim Al-Mansour	Visualización e Historias de Datos	2026-03-07	43
+13	Basma Al-Taji	Inteligencia Artificial Avanzada	2026-03-09	81
+14	Hassan El-Saad	Inteligencia Artificial Avanzada	2026-03-19	93
+15	Yasmin Al-Farsi	Ciencia de Datos Aplicada	2026-03-01	67
+16	Farid Al-Farsi	Bases de Datos NoSQL y Cloud	2026-03-01	100
+17	Habiba Al-Masri	Inteligencia Artificial Avanzada	2026-03-06	48
+18	Ali Ben-Youssef	Machine Learning y Modelos	2026-03-09	43
+19	Hala Al-Rashed	Inteligencia Artificial Avanzada	2026-03-25	77
+20	Ziad Al-Ghazali	Visualización e Historias de Datos	2026-03-01	49
+21	Noor Al-Huda	Ciencia de Datos Aplicada	2026-03-13	72
+22	Idris Al-Hadi	Visualización e Historias de Datos	2026-03-06	44
+23	Salma Al-Otaibi	Bases de Datos NoSQL y Cloud	2026-03-11	54
+24	Hamza Al-Sayed	Visualización e Historias de Datos	2026-03-16	48
+25	Farida Al-Sabah	Bases de Datos NoSQL y Cloud	2026-03-12	45
+26	Mustafa Al-Hassan	Bases de Datos NoSQL y Cloud	2026-03-08	50
+27	Fatima Al-Zahra	Bases de Datos NoSQL y Cloud	2026-03-07	71
+28	Rami El-Khoury	Ciencia de Datos Aplicada	2026-03-20	67
+29	Mariam Al-Mansour	Inteligencia Artificial Avanzada	2026-03-26	97
+30	Zayd Ibn-Harith	Inteligencia Artificial Avanzada	2026-03-16	48
+
+

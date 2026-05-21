@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "Nombre": "Programación Python",
+    "Codigo": "PY101",
+    "Docente": "Ing. Carlos Pérez",
+    "Creditos": 4,
+    "Alumnos_Inscritos": 18
+  },
+  {
+    "id": "2",
+    "Nombre": "Bases de Datos",
+    "Codigo": "BD102",
+    "Docente": "Dra. Martha Gómez",
+    "Creditos": 3,
+    "Alumnos_Inscritos": 15
+  },
+  {
+    "id": "3",
+    "Nombre": "Introducción a la IA",
+    "Codigo": "IA103",
+    "Docente": "Msc. Juan Díaz",
+    "Creditos": 4,
+    "Alumnos_Inscritos": 23
+  },
+  {
+    "id": "4",
+    "Nombre": "Desarrollo Web",
+    "Codigo": "DW104",
+    "Docente": "Ing. Luis Ruiz",
+    "Creditos": 3,
+    "Alumnos_Inscritos": 22
+  },
+  {
+    "id": "5",
+    "Nombre": "Ingeniería de Requisitos",
+    "Codigo": "IR105",
+    "Docente": "Dra. Sandra Castro",
+    "Creditos": 3,
+    "Alumnos_Inscritos": 22
+  },
+  {
+    "id": "6",
+    "Nombre": "Arquitectura de Software",
+    "Codigo": "AS106",
+    "Docente": "Ing. Andrés Torres",
+    "Creditos": 4,
+    "Alumnos_Inscritos": 19
+  }
+]

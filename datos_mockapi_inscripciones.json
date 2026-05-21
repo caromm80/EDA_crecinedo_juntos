@@ -1,0 +1,352 @@
+[
+  {
+    "id": "1",
+    "Estudiante": "Daniel Felipe Martínez",
+    "Curso": "Ingeniería de Requisitos",
+    "Fecha_Inscripcion": "2026-02-05",
+    "Progreso": 46
+  },
+  {
+    "id": "2",
+    "Estudiante": "Carolina María Gómez",
+    "Curso": "Arquitectura de Software",
+    "Fecha_Inscripcion": "2026-02-18",
+    "Progreso": 90
+  },
+  {
+    "id": "3",
+    "Estudiante": "Brandon Estiven Ciro",
+    "Curso": "Bases de Datos",
+    "Fecha_Inscripcion": "2026-02-17",
+    "Progreso": 63
+  },
+  {
+    "id": "4",
+    "Estudiante": "Britany Montoya Torres",
+    "Curso": "Ingeniería de Requisitos",
+    "Fecha_Inscripcion": "2026-02-07",
+    "Progreso": 84
+  },
+  {
+    "id": "5",
+    "Estudiante": "Juan Pablo Rodríguez",
+    "Curso": "Ingeniería de Requisitos",
+    "Fecha_Inscripcion": "2026-02-23",
+    "Progreso": 55
+  },
+  {
+    "id": "6",
+    "Estudiante": "Sofía Valentina Ramírez",
+    "Curso": "Introducción a la IA",
+    "Fecha_Inscripcion": "2026-02-22",
+    "Progreso": 81
+  },
+  {
+    "id": "7",
+    "Estudiante": "Mateo Alejandro Castro",
+    "Curso": "Arquitectura de Software",
+    "Fecha_Inscripcion": "2026-02-15",
+    "Progreso": 77
+  },
+  {
+    "id": "8",
+    "Estudiante": "Valentina Ruiz Díaz",
+    "Curso": "Ingeniería de Requisitos",
+    "Fecha_Inscripcion": "2026-02-04",
+    "Progreso": 87
+  },
+  {
+    "id": "9",
+    "Estudiante": "Santiago Andrés Ramos",
+    "Curso": "Bases de Datos",
+    "Fecha_Inscripcion": "2026-02-03",
+    "Progreso": 58
+  },
+  {
+    "id": "10",
+    "Estudiante": "Mariana Lucía Hernández",
+    "Curso": "Introducción a la IA",
+    "Fecha_Inscripcion": "2026-02-19",
+    "Progreso": 32
+  },
+  {
+    "id": "11",
+    "Estudiante": "Andrés Felipe Muñoz",
+    "Curso": "Ingeniería de Requisitos",
+    "Fecha_Inscripcion": "2026-02-19",
+    "Progreso": 59
+  },
+  {
+    "id": "12",
+    "Estudiante": "Gabriela Isabel Sánchez",
+    "Curso": "Bases de Datos",
+    "Fecha_Inscripcion": "2026-02-03",
+    "Progreso": 30
+  },
+  {
+    "id": "13",
+    "Estudiante": "Diego Luis Pérez",
+    "Curso": "Arquitectura de Software",
+    "Fecha_Inscripcion": "2026-02-08",
+    "Progreso": 37
+  },
+  {
+    "id": "14",
+    "Estudiante": "Laura Camila Torres",
+    "Curso": "Programación Python",
+    "Fecha_Inscripcion": "2026-02-28",
+    "Progreso": 34
+  },
+  {
+    "id": "15",
+    "Estudiante": "Alejandro José Álvarez",
+    "Curso": "Introducción a la IA",
+    "Fecha_Inscripcion": "2026-02-17",
+    "Progreso": 39
+  },
+  {
+    "id": "16",
+    "Estudiante": "Paula Andrea Cardona",
+    "Curso": "Bases de Datos",
+    "Fecha_Inscripcion": "2026-02-22",
+    "Progreso": 65
+  },
+  {
+    "id": "17",
+    "Estudiante": "Nicolás David Restrepo",
+    "Curso": "Desarrollo Web",
+    "Fecha_Inscripcion": "2026-02-18",
+    "Progreso": 57
+  },
+  {
+    "id": "18",
+    "Estudiante": "Valeria Sofía Ospina",
+    "Curso": "Bases de Datos",
+    "Fecha_Inscripcion": "2026-02-08",
+    "Progreso": 90
+  },
+  {
+    "id": "19",
+    "Estudiante": "Sebastián Andrés Herrera",
+    "Curso": "Desarrollo Web",
+    "Fecha_Inscripcion": "2026-02-07",
+    "Progreso": 82
+  },
+  {
+    "id": "20",
+    "Estudiante": "Manuela Salazar Duque",
+    "Curso": "Programación Python",
+    "Fecha_Inscripcion": "2026-02-22",
+    "Progreso": 42
+  },
+  {
+    "id": "21",
+    "Estudiante": "Felipe Antonio Ortiz",
+    "Curso": "Desarrollo Web",
+    "Fecha_Inscripcion": "2026-02-14",
+    "Progreso": 75
+  },
+  {
+    "id": "22",
+    "Estudiante": "Daniela Patricia Martínez",
+    "Curso": "Desarrollo Web",
+    "Fecha_Inscripcion": "2026-02-28",
+    "Progreso": 89
+  },
+  {
+    "id": "23",
+    "Estudiante": "José Manuel Rentería",
+    "Curso": "Arquitectura de Software",
+    "Fecha_Inscripcion": "2026-02-22",
+    "Progreso": 36
+  },
+  {
+    "id": "24",
+    "Estudiante": "Sara Isabel Londoño",
+    "Curso": "Arquitectura de Software",
+    "Fecha_Inscripcion": "2026-02-02",
+    "Progreso": 42
+  },
+  {
+    "id": "25",
+    "Estudiante": "David Esteban Vargas",
+    "Curso": "Desarrollo Web",
+    "Fecha_Inscripcion": "2026-02-26",
+    "Progreso": 73
+  },
+  {
+    "id": "26",
+    "Estudiante": "Natalia Inés Monsalve",
+    "Curso": "Programación Python",
+    "Fecha_Inscripcion": "2026-02-07",
+    "Progreso": 61
+  },
+  {
+    "id": "27",
+    "Estudiante": "Juan David Villa",
+    "Curso": "Bases de Datos",
+    "Fecha_Inscripcion": "2026-02-15",
+    "Progreso": 98
+  },
+  {
+    "id": "28",
+    "Estudiante": "Lucía Mercedes Henao",
+    "Curso": "Bases de Datos",
+    "Fecha_Inscripcion": "2026-02-06",
+    "Progreso": 84
+  },
+  {
+    "id": "29",
+    "Estudiante": "Carlos Mario Yepes",
+    "Curso": "Introducción a la IA",
+    "Fecha_Inscripcion": "2026-02-08",
+    "Progreso": 89
+  },
+  {
+    "id": "30",
+    "Estudiante": "Andrea Carolina Marín",
+    "Curso": "Programación Python",
+    "Fecha_Inscripcion": "2026-02-26",
+    "Progreso": 86
+  },
+  {
+    "id": "31",
+    "Estudiante": "Luis Fernando Agudelo",
+    "Curso": "Ingeniería de Requisitos",
+    "Fecha_Inscripcion": "2026-02-02",
+    "Progreso": 42
+  },
+  {
+    "id": "32",
+    "Estudiante": "Ana María Gutiérrez",
+    "Curso": "Arquitectura de Software",
+    "Fecha_Inscripcion": "2026-02-27",
+    "Progreso": 99
+  },
+  {
+    "id": "33",
+    "Estudiante": "Miguel Ángel Serna",
+    "Curso": "Programación Python",
+    "Fecha_Inscripcion": "2026-02-25",
+    "Progreso": 41
+  },
+  {
+    "id": "34",
+    "Estudiante": "Camila Fernanda Rojas",
+    "Curso": "Bases de Datos",
+    "Fecha_Inscripcion": "2026-02-14",
+    "Progreso": 51
+  },
+  {
+    "id": "35",
+    "Estudiante": "Jorge Eliecer Giraldo",
+    "Curso": "Desarrollo Web",
+    "Fecha_Inscripcion": "2026-02-07",
+    "Progreso": 91
+  },
+  {
+    "id": "36",
+    "Estudiante": "Diana Marcela Alzate",
+    "Curso": "Desarrollo Web",
+    "Fecha_Inscripcion": "2026-02-06",
+    "Progreso": 37
+  },
+  {
+    "id": "37",
+    "Estudiante": "Oscar Mauricio Toro",
+    "Curso": "Desarrollo Web",
+    "Fecha_Inscripcion": "2026-02-13",
+    "Progreso": 30
+  },
+  {
+    "id": "38",
+    "Estudiante": "Sandra Milena Holguín",
+    "Curso": "Introducción a la IA",
+    "Fecha_Inscripcion": "2026-02-10",
+    "Progreso": 88
+  },
+  {
+    "id": "39",
+    "Estudiante": "Edwin Alberto Valencia",
+    "Curso": "Desarrollo Web",
+    "Fecha_Inscripcion": "2026-02-05",
+    "Progreso": 92
+  },
+  {
+    "id": "40",
+    "Estudiante": "Liliana María Bedoya",
+    "Curso": "Bases de Datos",
+    "Fecha_Inscripcion": "2026-02-07",
+    "Progreso": 67
+  },
+  {
+    "id": "41",
+    "Estudiante": "Héctor Fabio Benítez",
+    "Curso": "Programación Python",
+    "Fecha_Inscripcion": "2026-02-02",
+    "Progreso": 99
+  },
+  {
+    "id": "42",
+    "Estudiante": "Claudia Patricia Orozco",
+    "Curso": "Arquitectura de Software",
+    "Fecha_Inscripcion": "2026-02-02",
+    "Progreso": 70
+  },
+  {
+    "id": "43",
+    "Estudiante": "Juan Camilo Suárez",
+    "Curso": "Programación Python",
+    "Fecha_Inscripcion": "2026-02-17",
+    "Progreso": 91
+  },
+  {
+    "id": "44",
+    "Estudiante": "Beatriz Elena Rivera",
+    "Curso": "Ingeniería de Requisitos",
+    "Fecha_Inscripcion": "2026-02-02",
+    "Progreso": 50
+  },
+  {
+    "id": "45",
+    "Estudiante": "Gustavo Adolfo Palacios",
+    "Curso": "Ingeniería de Requisitos",
+    "Fecha_Inscripcion": "2026-02-28",
+    "Progreso": 40
+  },
+  {
+    "id": "46",
+    "Estudiante": "Martha Cecilia Rúa",
+    "Curso": "Bases de Datos",
+    "Fecha_Inscripcion": "2026-02-20",
+    "Progreso": 38
+  },
+  {
+    "id": "47",
+    "Estudiante": "Alexander de Jesús Blandón",
+    "Curso": "Programación Python",
+    "Fecha_Inscripcion": "2026-02-13",
+    "Progreso": 60
+  },
+  {
+    "id": "48",
+    "Estudiante": "Yolanda Cristina Quintero",
+    "Curso": "Programación Python",
+    "Fecha_Inscripcion": "2026-02-19",
+    "Progreso": 61
+  },
+  {
+    "id": "49",
+    "Estudiante": "César Augusto Jaramillo",
+    "Curso": "Ingeniería de Requisitos",
+    "Fecha_Inscripcion": "2026-02-20",
+    "Progreso": 35
+  },
+  {
+    "id": "50",
+    "Estudiante": "Britany Estefanía Montoya",
+    "Curso": "Programación Python",
+    "Fecha_Inscripcion": "2026-02-22",
+    "Progreso": 83
+  }
+]
