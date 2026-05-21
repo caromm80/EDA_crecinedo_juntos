@@ -463,9 +463,9 @@ if df is not None:
                 )
             
             with col_chart_c2:
-                # Calculate counts
+                # Calculate counts - Renamed to standard clean columns to avoid issues with spaces/accents in Vega-Lite
                 counts_df = df[selected_cat_col].value_counts().head(limite_elementos).reset_index()
-                counts_df.columns = [selected_cat_col, "Cantidad"]
+                counts_df.columns = ["Categoria", "Cantidad"]
                 
                 # Plot beautiful bar chart with linear gradient
                 bar_chart = alt.Chart(counts_df).mark_bar(
@@ -480,9 +480,9 @@ if df is not None:
                         ]
                     )
                 ).encode(
-                    x=alt.X(f"{selected_cat_col}:N", sort=None, title=selected_cat_col, axis=alt.Axis(labelAngle=-45, labelColor='#94A3B8', titleColor='#CBD5E1')),
+                    x=alt.X("Categoria:N", sort=None, title=selected_cat_col, axis=alt.Axis(labelAngle=-45, labelColor='#94A3B8', titleColor='#CBD5E1')),
                     y=alt.Y("Cantidad:Q", title="Frecuencia Absoluta", axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
-                    tooltip=[selected_cat_col, "Cantidad"]
+                    tooltip=["Categoria", "Cantidad"]
                 ).properties(
                     height=380
                 ).configure_axis(
@@ -529,14 +529,14 @@ if df is not None:
                 )
             
             with col_chart_p2:
-                # Calculate percentages
+                # Calculate percentages - Renamed to standard clean columns to avoid issues with spaces/accents in Vega-Lite
                 pie_counts = df[selected_pie_col].value_counts().head(limite_pie).reset_index()
-                pie_counts.columns = [selected_pie_col, "Cantidad"]
+                pie_counts.columns = ["Categoria", "Cantidad"]
                 total_pie = df[selected_pie_col].value_counts().sum()
                 pie_counts["Porcentaje"] = ((pie_counts["Cantidad"] / total_pie) * 100).round(1)
                 
                 # Colors based on selected palette
-                domain_vals = [str(v) for v in pie_counts[selected_pie_col].unique()]
+                domain_vals = [str(v) for v in pie_counts["Categoria"].unique()]
                 if paleta_opcion == "Cyberpunk Eléctrico":
                     range_colors = ['#EC4899', '#22D3EE', '#C084FC', '#3B82F6', '#8B5CF6', '#F472B6', '#06B6D4', '#6366F1', '#A855F7', '#1E40AF']
                 elif paleta_opcion == "Aurora Boreal":
@@ -549,7 +549,7 @@ if df is not None:
                 range_colors = range_colors[:len(domain_vals)]
                 
                 # Interactive selections (Legend click + Mouseover Hover Glow)
-                legend_selection = alt.selection_point(fields=[selected_pie_col], bind='legend')
+                legend_selection = alt.selection_point(fields=["Categoria"], bind='legend')
                 hover_selection = alt.selection_point(on='mouseover', clear='mouseout')
                 
                 if "Dona" in tipo_grafico_circular:
@@ -559,14 +559,14 @@ if df is not None:
                     ).encode(
                         theta=alt.Theta("Cantidad:Q", stack=True),
                         color=alt.Color(
-                            f"{selected_pie_col}:N", 
+                            "Categoria:N", 
                             scale=alt.Scale(domain=domain_vals, range=range_colors),
                             legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
                         ),
                         stroke=alt.condition(hover_selection, alt.value('#FFFFFF'), alt.value('rgba(255, 255, 255, 0.15)')),
                         strokeWidth=alt.condition(hover_selection, alt.value(3.5), alt.value(1.2)),
                         opacity=alt.condition(legend_selection, alt.value(0.9), alt.value(0.25)),
-                        tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
+                        tooltip=["Categoria", "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
                     ).add_params(
                         legend_selection,
                         hover_selection
@@ -583,14 +583,14 @@ if df is not None:
                     ).encode(
                         theta=alt.Theta("Cantidad:Q", stack=True),
                         color=alt.Color(
-                            f"{selected_pie_col}:N", 
+                            "Categoria:N", 
                             scale=alt.Scale(domain=domain_vals, range=range_colors),
                             legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
                         ),
                         stroke=alt.condition(hover_selection, alt.value('#FFFFFF'), alt.value('rgba(255, 255, 255, 0.15)')),
                         strokeWidth=alt.condition(hover_selection, alt.value(3.5), alt.value(1.2)),
                         opacity=alt.condition(legend_selection, alt.value(0.9), alt.value(0.25)),
-                        tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
+                        tooltip=["Categoria", "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
                     ).add_params(
                         legend_selection,
                         hover_selection
@@ -608,14 +608,14 @@ if df is not None:
                         theta=alt.Theta("Angulo:Q", stack=True),
                         radius=alt.Radius("Cantidad:Q", scale=alt.Scale(type="sqrt", range=[60, 200])),
                         color=alt.Color(
-                            f"{selected_pie_col}:N", 
+                            "Categoria:N", 
                             scale=alt.Scale(domain=domain_vals, range=range_colors),
                             legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
                         ),
                         stroke=alt.condition(hover_selection, alt.value('#FFFFFF'), alt.value('rgba(255, 255, 255, 0.15)')),
                         strokeWidth=alt.condition(hover_selection, alt.value(3.5), alt.value(1.2)),
                         opacity=alt.condition(legend_selection, alt.value(0.9), alt.value(0.25)),
-                        tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
+                        tooltip=["Categoria", "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
                     ).add_params(
                         legend_selection,
                         hover_selection
@@ -637,14 +637,14 @@ if df is not None:
                         radius=alt.Radius("r_outer:Q", scale=alt.Scale(zero=False)),
                         radius2=alt.Radius2("r_inner:Q"),
                         color=alt.Color(
-                            f"{selected_pie_col}:N", 
+                            "Categoria:N", 
                             scale=alt.Scale(domain=domain_vals, range=range_colors),
                             legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
                         ),
                         stroke=alt.condition(hover_selection, alt.value('#FFFFFF'), alt.value('rgba(255, 255, 255, 0.08)')),
                         strokeWidth=alt.condition(hover_selection, alt.value(3.5), alt.value(1.2)),
                         opacity=alt.condition(legend_selection, alt.value(0.9), alt.value(0.25)),
-                        tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
+                        tooltip=["Categoria", "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
                     ).add_params(
                         legend_selection,
                         hover_selection
@@ -676,7 +676,7 @@ if df is not None:
                         border: 1px solid rgba(255,255,255,0.02);
                         transition: transform 0.2s ease-in-out;
                     ">
-                        <span style="font-family: 'Outfit'; color: #CBD5E1; font-size: 0.9rem; font-weight: 500;">{row[selected_pie_col]}</span>
+                        <span style="font-family: 'Outfit'; color: #CBD5E1; font-size: 0.9rem; font-weight: 500;">{row['Categoria']}</span>
                         <span style="font-family: 'Outfit'; color: {color}; font-size: 0.95rem; font-weight: 700;">{row['Porcentaje']}% <span style='color:#64748B; font-size:0.8rem; font-weight:400;'>({row['Cantidad']})</span></span>
                     </div>
                     """, unsafe_allow_html=True)
@@ -715,7 +715,8 @@ if df is not None:
                     domain_vals = [str(v) for v in df[selected_color_col].dropna().unique()][:10]
                     range_colors = ['#EC4899', '#22D3EE', '#C084FC', '#F59E0B', '#10B981', '#EF4444', '#6366F1', '#8B5CF6', '#EC4899', '#3B82F6'][:len(domain_vals)]
                     color_encoding = alt.Color(
-                        f"{selected_color_col}:N", 
+                        field=selected_color_col,
+                        type="nominal",
                         scale=alt.Scale(domain=domain_vals, range=range_colors),
                         legend=alt.Legend(title=selected_color_col, labelColor='#94A3B8', titleColor='#CBD5E1')
                     )
@@ -723,8 +724,8 @@ if df is not None:
                     color_encoding = alt.value('#22D3EE')
                     
                 scatter_chart = alt.Chart(df).mark_circle(size=100, opacity=0.75).encode(
-                    x=alt.X(f"{selected_x_col}:Q", scale=alt.Scale(zero=False), title=selected_x_col, axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
-                    y=alt.Y(f"{selected_y_col}:Q", scale=alt.Scale(zero=False), title=selected_y_col, axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
+                    x=alt.X(field=selected_x_col, type="quantitative", scale=alt.Scale(zero=False), title=selected_x_col, axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
+                    y=alt.Y(field=selected_y_col, type="quantitative", scale=alt.Scale(zero=False), title=selected_y_col, axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
                     color=color_encoding,
                     tooltip=[c for c in df.columns[:8]]
                 ).properties(
@@ -768,9 +769,9 @@ if df is not None:
                         ]
                     )
                 ).encode(
-                    x=alt.X(f"{selected_dist_col}:Q", bin=alt.Bin(maxbins=num_bins), title=selected_dist_col, axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
+                    x=alt.X(field=selected_dist_col, type="quantitative", bin=alt.Bin(maxbins=num_bins), title=selected_dist_col, axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
                     y=alt.Y("count()", title="Frecuencia (Registros)", axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
-                    tooltip=[alt.Tooltip(f"{selected_dist_col}:Q", bin=True, title="Rango"), alt.Tooltip("count()", title="Cantidad")]
+                    tooltip=[alt.Tooltip(field=selected_dist_col, type="quantitative", bin=True, title="Rango"), alt.Tooltip("count()", title="Cantidad")]
                 ).properties(
                     height=380
                 ).configure_axis(
