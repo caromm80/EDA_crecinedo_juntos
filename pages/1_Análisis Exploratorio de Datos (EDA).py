@@ -3,6 +3,8 @@ import pandas as pd
 import requests
 import json
 import os
+import altair as alt
+
 
 # Configuración de la página
 st.set_page_config(
@@ -319,9 +321,24 @@ if df is not None:
     </h2>
     """, unsafe_allow_html=True)
     
+    col_cal1, col_cal2 = st.columns(2)
+    
     missing_data = df.isnull().sum()
     missing_percent = (df.isnull().sum() / len(df)) * 100
+    duplicados_count = df.duplicated().sum()
     
+    with col_cal1:
+        st.metric("Total de Celdas Nulas", missing_data.sum())
+    with col_cal2:
+        st.metric("Total de Filas Duplicadas", duplicados_count)
+        
+    if duplicados_count > 0:
+        st.warning(f"Se detectaron {duplicados_count} filas duplicadas en el conjunto de datos.")
+        eliminar_dups = st.checkbox("Aplicar Limpieza Avanzada (Eliminar duplicados automáticamente con drop_duplicates)", value=True)
+        if eliminar_dups:
+            df = df.drop_duplicates()
+            st.success("¡Filas duplicadas eliminadas con éxito en el DataFrame de análisis!")
+            
     if missing_data.sum() > 0:
         st.subheader("Atributos con Valores Nulos Detectados")
         missing_df = pd.DataFrame({
@@ -331,6 +348,15 @@ if df is not None:
         })
         missing_df = missing_df[missing_df['Nulos'] > 0].sort_values('Porcentaje Nulos', ascending=False)
         st.dataframe(missing_df, use_container_width=True)
+        
+        limpiar_nulos = st.checkbox("Rellenar valores nulos automáticamente (Limpieza con fillna)", value=True)
+        if limpiar_nulos:
+            for col in df.columns:
+                if df[col].dtype in ['int64', 'float64']:
+                    df[col] = df[col].fillna(df[col].median())
+                else:
+                    df[col] = df[col].fillna("Sin Registro")
+            st.success("¡Valores nulos rellenados automáticamente con la mediana/texto por defecto usando fillna!")
     else:
         st.success("Integridad de Datos Perfecta: No se detectaron valores nulos o vacíos en el dataset analizado.")
     
@@ -376,6 +402,335 @@ if df is not None:
                     st.dataframe(freq_df, use_container_width=True)
         else:
             st.info("El dataset no contiene variables categóricas o de texto.")
+
+    # --- Paso 5: Visualización Exploratoria Dinámica y Gráficos Premium ---
+    st.divider()
+    st.markdown("""
+    <h2 class="tech-header">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px #A78BFA); vertical-align: middle; margin-right: 12px;">
+            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+            <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+        </svg>Visualización Exploratoria Dinámica y Gráficos Premium
+    </h2>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    Explora relaciones, distribuciones y conteos de forma interactiva. Selecciona qué variables del dataset deseas cruzar y graficar:
+    """)
+    
+    tab_chart1, tab_chart2, tab_chart3, tab_chart4 = st.tabs([
+        "📊 Gráfico de Frecuencias (Categóricas)", 
+        "🍩 Proporciones y Distribución Circular",
+        "📈 Relación y Dispersión (Numéricas)",
+        "🔔 Distribución / Histograma"
+    ])
+    
+    with tab_chart1:
+        cat_cols_chart = df.select_dtypes(exclude=['number']).columns.tolist()
+        if len(cat_cols_chart) > 0:
+            col_chart_c1, col_chart_c2 = st.columns([1, 3])
+            with col_chart_c1:
+                selected_cat_col = st.selectbox(
+                    "Selecciona una variable categórica:", 
+                    options=cat_cols_chart, 
+                    key="eda_cat_selectbox"
+                )
+                limite_elementos = st.slider(
+                    "Número máximo de categorías a mostrar:", 
+                    min_value=5, 
+                    max_value=30, 
+                    value=10,
+                    key="eda_cat_slider"
+                )
+            
+            with col_chart_c2:
+                # Calculate counts
+                counts_df = df[selected_cat_col].value_counts().head(limite_elementos).reset_index()
+                counts_df.columns = [selected_cat_col, "Cantidad"]
+                
+                # Plot beautiful bar chart with linear gradient
+                bar_chart = alt.Chart(counts_df).mark_bar(
+                    cornerRadiusTopLeft=8,
+                    cornerRadiusTopRight=8,
+                    fill=alt.Gradient(
+                        gradient='linear',
+                        stops=[
+                            alt.GradientStop(color='#C084FC', offset=0),
+                            alt.GradientStop(color='#EC4899', offset=0.5),
+                            alt.GradientStop(color='#22D3EE', offset=1)
+                        ]
+                    )
+                ).encode(
+                    x=alt.X(f"{selected_cat_col}:N", sort=None, title=selected_cat_col, axis=alt.Axis(labelAngle=-45, labelColor='#94A3B8', titleColor='#CBD5E1')),
+                    y=alt.Y("Cantidad:Q", title="Frecuencia Absoluta", axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
+                    tooltip=[selected_cat_col, "Cantidad"]
+                ).properties(
+                    height=380
+                ).configure_axis(
+                    gridColor='rgba(255, 255, 255, 0.05)'
+                ).configure_view(
+                    strokeOpacity=0
+                )
+                st.altair_chart(bar_chart, use_container_width=True)
+        else:
+            st.info("El dataset no contiene variables categóricas para graficar frecuencias.")
+            
+    with tab_chart2:
+        cat_cols_chart = df.select_dtypes(exclude=['number']).columns.tolist()
+        if len(cat_cols_chart) > 0:
+            col_chart_p1, col_chart_p2 = st.columns([1, 2])
+            with col_chart_p1:
+                selected_pie_col = st.selectbox(
+                    "Selecciona variable para distribución circular:", 
+                    options=cat_cols_chart, 
+                    key="eda_pie_selectbox"
+                )
+                limite_pie = st.slider(
+                    "Mostrar top N categorías:", 
+                    min_value=3, 
+                    max_value=12, 
+                    value=6,
+                    key="eda_pie_slider"
+                )
+                tipo_grafico_circular = st.radio(
+                    "Estilo del Gráfico Circular:",
+                    options=[
+                        "🍩 Dona Cibernética (Recomendado)", 
+                        "🍕 Pie Tradicional", 
+                        "🌹 Rosa de Nightingale (Rose Chart)", 
+                        "🌀 Anillos Concéntricos (Radial Bar Chart)"
+                    ],
+                    key="eda_pie_style"
+                )
+                paleta_opcion = st.selectbox(
+                    "Paleta de Color Futurista:",
+                    options=["Cyberpunk Eléctrico", "Aurora Boreal", "Lava Solar", "Orquídea Galáctica"],
+                    key="eda_pie_palette"
+                )
+            
+            with col_chart_p2:
+                # Calculate percentages
+                pie_counts = df[selected_pie_col].value_counts().head(limite_pie).reset_index()
+                pie_counts.columns = [selected_pie_col, "Cantidad"]
+                total_pie = df[selected_pie_col].value_counts().sum()
+                pie_counts["Porcentaje"] = ((pie_counts["Cantidad"] / total_pie) * 100).round(1)
+                
+                # Colors based on selected palette
+                domain_vals = [str(v) for v in pie_counts[selected_pie_col].unique()]
+                if paleta_opcion == "Cyberpunk Eléctrico":
+                    range_colors = ['#EC4899', '#22D3EE', '#C084FC', '#3B82F6', '#8B5CF6', '#F472B6', '#06B6D4', '#6366F1', '#A855F7', '#1E40AF']
+                elif paleta_opcion == "Aurora Boreal":
+                    range_colors = ['#10B981', '#14B8A6', '#06B6D4', '#22C55E', '#84CC16', '#34D399', '#2DD4BF', '#0891B2', '#15803D', '#4D7C0F']
+                elif paleta_opcion == "Lava Solar":
+                    range_colors = ['#F59E0B', '#EF4444', '#F97316', '#D97706', '#DC2626', '#EA580C', '#EC4899', '#F472B6', '#E11D48', '#B91C1C']
+                else: # Orquídea Galáctica
+                    range_colors = ['#8B5CF6', '#EC4899', '#C084FC', '#6366F1', '#D946EF', '#A78BFA', '#818CF8', '#E9D5FF', '#F472B6', '#4F46E5']
+                
+                range_colors = range_colors[:len(domain_vals)]
+                
+                # Interactive selection for legend highlighting
+                legend_selection = alt.selection_point(fields=[selected_pie_col], bind='legend')
+                
+                if "Dona" in tipo_grafico_circular:
+                    pie_chart = alt.Chart(pie_counts).mark_arc(
+                        innerRadius=75, 
+                        outerRadius=120,
+                        stroke="#000000",
+                        strokeWidth=2
+                    ).encode(
+                        theta=alt.Theta("Cantidad:Q", stack=True),
+                        color=alt.Color(
+                            f"{selected_pie_col}:N", 
+                            scale=alt.Scale(domain=domain_vals, range=range_colors),
+                            legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
+                        ),
+                        opacity=alt.condition(legend_selection, alt.value(1.0), alt.value(0.25)),
+                        tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
+                    ).add_params(
+                        legend_selection
+                    ).properties(
+                        height=380
+                    ).configure_view(
+                        strokeOpacity=0
+                    )
+                    
+                elif "Pie" in tipo_grafico_circular:
+                    pie_chart = alt.Chart(pie_counts).mark_arc(
+                        innerRadius=0, 
+                        outerRadius=120,
+                        stroke="#000000",
+                        strokeWidth=2
+                    ).encode(
+                        theta=alt.Theta("Cantidad:Q", stack=True),
+                        color=alt.Color(
+                            f"{selected_pie_col}:N", 
+                            scale=alt.Scale(domain=domain_vals, range=range_colors),
+                            legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
+                        ),
+                        opacity=alt.condition(legend_selection, alt.value(1.0), alt.value(0.25)),
+                        tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
+                    ).add_params(
+                        legend_selection
+                    ).properties(
+                        height=380
+                    ).configure_view(
+                        strokeOpacity=0
+                    )
+                    
+                elif "Rosa" in tipo_grafico_circular:
+                    pie_counts["Angulo"] = 1
+                    pie_chart = alt.Chart(pie_counts).mark_arc(
+                        innerRadius=25,
+                        stroke="#000000",
+                        strokeWidth=1.5
+                    ).encode(
+                        theta=alt.Theta("Angulo:Q", stack=True),
+                        radius=alt.Radius("Cantidad:Q", scale=alt.Scale(type="sqrt", range=[45, 135])),
+                        color=alt.Color(
+                            f"{selected_pie_col}:N", 
+                            scale=alt.Scale(domain=domain_vals, range=range_colors),
+                            legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
+                        ),
+                        opacity=alt.condition(legend_selection, alt.value(1.0), alt.value(0.25)),
+                        tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
+                    ).add_params(
+                        legend_selection
+                    ).properties(
+                        height=380
+                    ).configure_view(
+                        strokeOpacity=0
+                    )
+                    
+                else: # Anillos Concéntricos (Radial Bar Chart)
+                    pie_counts = pie_counts.reset_index(drop=True)
+                    pie_counts["r_inner"] = 35 + pie_counts.index * 15
+                    pie_counts["r_outer"] = 47 + pie_counts.index * 15
+                    
+                    pie_chart = alt.Chart(pie_counts).mark_arc(
+                        stroke="#000000",
+                        strokeWidth=1,
+                        strokeOpacity=0.5
+                    ).encode(
+                        theta=alt.Theta("Porcentaje:Q", scale=alt.Scale(domain=[0, 100], range=[0, 270])),
+                        radius=alt.Radius("r_outer:Q", scale=alt.Scale(zero=False)),
+                        radius2=alt.Radius2("r_inner:Q"),
+                        color=alt.Color(
+                            f"{selected_pie_col}:N", 
+                            scale=alt.Scale(domain=domain_vals, range=range_colors),
+                            legend=alt.Legend(title=selected_pie_col, labelColor='#94A3B8', titleColor='#CBD5E1')
+                        ),
+                        opacity=alt.condition(legend_selection, alt.value(1.0), alt.value(0.25)),
+                        tooltip=[selected_pie_col, "Cantidad", alt.Tooltip("Porcentaje:Q", format=".1f", title="Porcentaje (%)")]
+                    ).add_params(
+                        legend_selection
+                    ).properties(
+                        height=380
+                    ).configure_view(
+                        strokeOpacity=0
+                    )
+                
+                st.altair_chart(pie_chart, use_container_width=True)
+        else:
+            st.info("El dataset no contiene variables categóricas para graficar proporciones circulares.")
+            
+    with tab_chart3:
+        num_cols_chart = df.select_dtypes(include=['number']).columns.tolist()
+        cat_cols_chart = df.select_dtypes(exclude=['number']).columns.tolist()
+        
+        if len(num_cols_chart) >= 2:
+            col_chart_s1, col_chart_s2 = st.columns([1, 3])
+            with col_chart_s1:
+                selected_x_col = st.selectbox(
+                    "Selecciona variable para el eje X:", 
+                    options=num_cols_chart, 
+                    index=0,
+                    key="eda_x_selectbox"
+                )
+                selected_y_col = st.selectbox(
+                    "Selecciona variable para el eje Y:", 
+                    options=num_cols_chart, 
+                    index=min(1, len(num_cols_chart)-1),
+                    key="eda_y_selectbox"
+                )
+                color_opt = ["Ninguno"] + cat_cols_chart
+                selected_color_col = st.selectbox(
+                    "Colorizar puntos por (Categoría):", 
+                    options=color_opt, 
+                    key="eda_color_selectbox"
+                )
+                
+            with col_chart_s2:
+                # Color encoding
+                if selected_color_col != "Ninguno":
+                    domain_vals = [str(v) for v in df[selected_color_col].dropna().unique()][:10]
+                    range_colors = ['#EC4899', '#22D3EE', '#C084FC', '#F59E0B', '#10B981', '#EF4444', '#6366F1', '#8B5CF6', '#EC4899', '#3B82F6'][:len(domain_vals)]
+                    color_encoding = alt.Color(
+                        f"{selected_color_col}:N", 
+                        scale=alt.Scale(domain=domain_vals, range=range_colors),
+                        legend=alt.Legend(title=selected_color_col, labelColor='#94A3B8', titleColor='#CBD5E1')
+                    )
+                else:
+                    color_encoding = alt.value('#22D3EE')
+                    
+                scatter_chart = alt.Chart(df).mark_circle(size=100, opacity=0.75).encode(
+                    x=alt.X(f"{selected_x_col}:Q", scale=alt.Scale(zero=False), title=selected_x_col, axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
+                    y=alt.Y(f"{selected_y_col}:Q", scale=alt.Scale(zero=False), title=selected_y_col, axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
+                    color=color_encoding,
+                    tooltip=[c for c in df.columns[:8]]
+                ).properties(
+                    height=380
+                ).configure_axis(
+                    gridColor='rgba(255, 255, 255, 0.05)'
+                ).configure_view(
+                    strokeOpacity=0
+                )
+                st.altair_chart(scatter_chart, use_container_width=True)
+        else:
+            st.info("Se requieren al menos 2 variables numéricas en el dataset para realizar cruces de dispersión.")
+            
+    with tab_chart4:
+        num_cols_chart = df.select_dtypes(include=['number']).columns.tolist()
+        if len(num_cols_chart) > 0:
+            col_chart_h1, col_chart_h2 = st.columns([1, 3])
+            with col_chart_h1:
+                selected_dist_col = st.selectbox(
+                    "Selecciona una variable numérica:", 
+                    options=num_cols_chart, 
+                    key="eda_dist_selectbox"
+                )
+                num_bins = st.slider(
+                    "Número de intervalos (Bins):", 
+                    min_value=5, 
+                    max_value=50, 
+                    value=15,
+                    key="eda_dist_slider"
+                )
+                
+            with col_chart_h2:
+                hist_chart = alt.Chart(df).mark_bar(
+                    cornerRadiusTopLeft=6,
+                    cornerRadiusTopRight=6,
+                    fill=alt.Gradient(
+                        gradient='linear',
+                        stops=[
+                            alt.GradientStop(color='#22D3EE', offset=0),
+                            alt.GradientStop(color='#EC4899', offset=1)
+                        ]
+                    )
+                ).encode(
+                    x=alt.X(f"{selected_dist_col}:Q", bin=alt.Bin(maxbins=num_bins), title=selected_dist_col, axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
+                    y=alt.Y("count()", title="Frecuencia (Registros)", axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
+                    tooltip=[alt.Tooltip(f"{selected_dist_col}:Q", bin=True, title="Rango"), alt.Tooltip("count()", title="Cantidad")]
+                ).properties(
+                    height=380
+                ).configure_axis(
+                    gridColor='rgba(255, 255, 255, 0.05)'
+                ).configure_view(
+                    strokeOpacity=0
+                )
+                st.altair_chart(hist_chart, use_container_width=True)
+        else:
+            st.info("El dataset no contiene variables numéricas para graficar distribuciones.")
 
     # --- Resumen de Investigación ---
     st.divider()

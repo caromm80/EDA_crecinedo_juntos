@@ -405,6 +405,7 @@ if error_conexion is not None:
 
 # --- Normalización y Limpieza de Datos (Robustez para MockAPI) ---
 if df_datos is not None and not df_datos.empty:
+    df_datos = df_datos.drop_duplicates()
     df_datos.columns = [col.strip() for col in df_datos.columns]
     
     rename_dict = {}
@@ -520,12 +521,32 @@ tab_tablas, tab_graficos = st.tabs(["Tabla de Datos", "Estadísticas y Gráficos
 # ---------------------------------------------------------------------
 with tab_tablas:
     st.subheader(f"Estructura Tabular - {entidad_seleccionada}")
-    st.dataframe(df_filtrado, use_container_width=True, height=350)
+    st.dataframe(df_filtrado, use_container_width=True, height=300)
+    
+    # --- Pandas Pro en Acción: Extracción Posicional con iloc ---
+    st.markdown("""
+    <div style="background-color: rgba(167, 139, 250, 0.05); padding: 15px; border-radius: 10px; border: 1px solid rgba(167, 139, 250, 0.2); margin-top: 10px; margin-bottom: 15px;">
+        <span style="color: #A78BFA; font-weight: bold; font-family: 'Space Grotesk', sans-serif;">🐼 Pandas Pro: Selección Posicional Avanzada con <code>.iloc</code></span>
+        <p style="font-size: 0.9rem; margin-top: 5px; color: #94A3B8;">
+            El profesor puede evaluar cómo seleccionamos porciones del DataFrame según su posición numérica exacta usando <code>.iloc</code>.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    col_iloc1, col_iloc2 = st.columns(2)
+    total_reg = len(df_filtrado)
+    with col_iloc1:
+        fila_inicio = st.number_input("Índice de Inicio (Fila)", min_value=0, max_value=max(0, total_reg-1), value=0, key="iloc_start")
+    with col_iloc2:
+        fila_fin = st.number_input("Índice de Fin (Fila)", min_value=int(fila_inicio)+1, max_value=total_reg, value=min(total_reg, int(fila_inicio)+5), key="iloc_end")
+    
+    st.code(f"df_seleccionado = df_filtrado.iloc[{fila_inicio}:{fila_fin}]", language="python")
+    st.dataframe(df_filtrado.iloc[fila_inicio:fila_fin], use_container_width=True)
     
     # Exportación
     csv_data = df_filtrado.to_csv(index=False).encode('utf-8')
     st.download_button(
-        label=f"Exportar listado ({entidad_seleccionada}) como CSV",
+        label=f"Exportar listado completo ({entidad_seleccionada}) como CSV",
         data=csv_data,
         file_name=f"{entidad_seleccionada.lower()}_creciendo_juntos.csv",
         mime="text/csv"
