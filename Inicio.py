@@ -244,6 +244,7 @@ st.markdown("""
 integrantes = [
     {"nombre": "Daniel Martinez", "rol": "Líder de Proyecto", "color": "#A78BFA"},
     {"nombre": "Brandon Ciro", "rol": "Desarrollo Backend (Java)", "color": "#F59E0B"},
+    {"nombre": "Samuel Hoyos", "rol": "Desarrollo Backend (Java)", "color": "#F59E0B"},
     {"nombre": "Carolina Martinez", "rol": "Analítica de Datos", "color": "#06B6D4"},
     {"nombre": "Britany Montoya", "rol": "Analítica de Datos", "color": "#06B6D4"},
 ]
