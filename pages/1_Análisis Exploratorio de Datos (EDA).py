@@ -133,11 +133,27 @@ Permite auditar la integridad de la información, evaluar distribuciones estadí
 """)
 
 # --- Funciones de Carga Robustas ---
+def map_custom_labels(df):
+    if df is not None:
+        # Map GRAVEDAD if present to human-readable labels
+        if 'GRAVEDAD' in df.columns:
+            gravity_mapping = {
+                'h': 'Con Heridos 👤',
+                'd': 'Solo Daños 🚗',
+                'm': 'Con Muertos 💀',
+                'H': 'Con Heridos 👤',
+                'D': 'Solo Daños 🚗',
+                'M': 'Con Muertos 💀'
+            }
+            df['GRAVEDAD'] = df['GRAVEDAD'].replace(gravity_mapping)
+    return df
+
 @st.cache_data
 def load_data_from_file(file_path):
     try:
         df = pd.read_csv(file_path)
         df.columns = [col.strip() for col in df.columns]
+        df = map_custom_labels(df)
         return df
     except Exception as e:
         st.error(f"Error al cargar {file_path}: {e}")
@@ -148,6 +164,7 @@ def load_data_from_upload(file):
     try:
         df = pd.read_csv(file)
         df.columns = [col.strip() for col in df.columns]
+        df = map_custom_labels(df)
         return df
     except Exception as e:
         st.error(f"Error al cargar el archivo subido: {e}")
@@ -168,6 +185,7 @@ def load_data_from_google_sheets(sheet_url):
                     sheet_url = sheet_url.split("?")[0] + "/export?format=csv"
         df = pd.read_csv(sheet_url)
         df.columns = [col.strip() for col in df.columns]
+        df = map_custom_labels(df)
         return df
     except Exception as e:
         st.error(f"Error al conectar con Google Sheets: {e}")
@@ -180,6 +198,7 @@ def load_data_from_mockapi(mockapi_url):
         if respuesta.status_code == 200:
             df = pd.DataFrame(respuesta.json())
             df.columns = [col.strip() for col in df.columns]
+            df = map_custom_labels(df)
             return df
         else:
             st.error(f"Error HTTP {respuesta.status_code} al conectar con MockAPI.")
