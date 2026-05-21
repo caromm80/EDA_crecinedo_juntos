@@ -488,7 +488,7 @@ if df is not None:
                     y=alt.Y("Cantidad:Q", title="Frecuencia Absoluta", axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
                     tooltip=["Categoria", "Cantidad"]
                 ).properties(
-                    height=380
+                    height=300
                 ).configure_axis(
                     gridColor='rgba(255, 255, 255, 0.05)'
                 ).configure_view(
@@ -558,8 +558,8 @@ if df is not None:
                 
                 if "Dona" in tipo_grafico_circular:
                     pie_chart = alt.Chart(pie_counts).mark_arc(
-                        innerRadius=120, 
-                        outerRadius=180
+                        innerRadius=70, 
+                        outerRadius=105
                     ).encode(
                         theta=alt.Theta("Cantidad:Q", stack=True),
                         color=alt.Color(
@@ -575,7 +575,7 @@ if df is not None:
                         legend_selection,
                         hover_selection
                     ).properties(
-                        height=500
+                        height=300
                     ).configure_view(
                         strokeOpacity=0
                     )
@@ -583,7 +583,7 @@ if df is not None:
                 elif "Pie" in tipo_grafico_circular:
                     pie_chart = alt.Chart(pie_counts).mark_arc(
                         innerRadius=0, 
-                        outerRadius=180
+                        outerRadius=105
                     ).encode(
                         theta=alt.Theta("Cantidad:Q", stack=True),
                         color=alt.Color(
@@ -599,7 +599,7 @@ if df is not None:
                         legend_selection,
                         hover_selection
                     ).properties(
-                        height=500
+                        height=300
                     ).configure_view(
                         strokeOpacity=0
                     )
@@ -607,10 +607,10 @@ if df is not None:
                 elif "Rosa" in tipo_grafico_circular:
                     pie_counts["Angulo"] = 1
                     pie_chart = alt.Chart(pie_counts).mark_arc(
-                        innerRadius=35
+                        innerRadius=20
                     ).encode(
                         theta=alt.Theta("Angulo:Q", stack=True),
-                        radius=alt.Radius("Cantidad:Q", scale=alt.Scale(type="sqrt", range=[60, 200])),
+                        radius=alt.Radius("Cantidad:Q", scale=alt.Scale(type="sqrt", range=[40, 110])),
                         color=alt.Color(
                             "Categoria:N", 
                             scale=alt.Scale(domain=domain_vals, range=range_colors),
@@ -624,15 +624,15 @@ if df is not None:
                         legend_selection,
                         hover_selection
                     ).properties(
-                        height=500
+                        height=300
                     ).configure_view(
                         strokeOpacity=0
                     )
                     
                 else: # Anillos Concéntricos (Radial Bar Chart)
                     pie_counts = pie_counts.reset_index(drop=True)
-                    pie_counts["r_inner"] = 60 + pie_counts.index * 22
-                    pie_counts["r_outer"] = 78 + pie_counts.index * 22
+                    pie_counts["r_inner"] = 40 + pie_counts.index * 12
+                    pie_counts["r_outer"] = 50 + pie_counts.index * 12
                     
                     pie_chart = alt.Chart(pie_counts).mark_arc(
                         strokeOpacity=0.5
@@ -653,7 +653,7 @@ if df is not None:
                         legend_selection,
                         hover_selection
                     ).properties(
-                        height=500
+                        height=300
                     ).configure_view(
                         strokeOpacity=0
                     )
@@ -743,7 +743,7 @@ if df is not None:
                     color=color_encoding,
                     tooltip=[c for c in df.columns[:8]]
                 ).properties(
-                    height=380
+                    height=300
                 ).configure_axis(
                     gridColor='rgba(255, 255, 255, 0.05)'
                 ).configure_view(
@@ -787,7 +787,7 @@ if df is not None:
                     y=alt.Y("count()", title="Frecuencia (Registros)", axis=alt.Axis(labelColor='#94A3B8', titleColor='#CBD5E1')),
                     tooltip=[alt.Tooltip(field=selected_dist_col, type="quantitative", bin=True, title="Rango"), alt.Tooltip("count()", title="Cantidad")]
                 ).properties(
-                    height=380
+                    height=300
                 ).configure_axis(
                     gridColor='rgba(255, 255, 255, 0.05)'
                 ).configure_view(
