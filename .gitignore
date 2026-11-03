@@ -1,6 +1,38 @@
+# Entorno virtual de Python
 .venv/
+venv/
+ENV/
+env/
+
+# Cache de Python
 __pycache__/
-.streamlit/
-*.csv
 *.pyc
+*.pyo
+*.pyd
+
+# Node / Vite / React
+frontend_web/node_modules/
+frontend_web/dist/
+frontend_web/.vite/
+node_modules/
+dist/
+
+# Archivos de configuración y editor
+.vscode/
+.idea/
+*.swp
 .DS_Store
+Thumbs.db
+
+# Logs y temporales
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Streamlit
+.streamlit/
+
+# Permitir explícitamente los CSVs del proyecto en data/
+!data/*.csv
+!data/*.json
