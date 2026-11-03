@@ -15,6 +15,14 @@ Requerimientos cumplidos:
 """
 
 import datetime
+import sys
+
+# Asegurar codificación UTF-8 en consolas Windows (cp1252)
+if hasattr(sys.stdout, 'reconfigure'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
 
 # --- Estructura de Datos Inicial (Lista de Diccionarios) ---
 registros_diario = [
