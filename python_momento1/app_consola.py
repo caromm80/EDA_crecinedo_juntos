@@ -2,20 +2,21 @@
 =============================================================================
 PROYECTO: Diario de Gratitud y Estado de Ánimo (Mood Tracker) - Lumi
 MOMENTO 1: Aplicación Interactiva en Consola (Estructuras de Datos y Funciones)
+RAMA: feature/aprueba
 =============================================================================
 Requerimientos cumplidos:
 1. Menú interactivo continuo utilizando ciclo while con opciones claras.
 2. Uso de Listas (historial en memoria) y Diccionarios (cada registro individual).
 3. Separación de lógica modular en funciones específicas (def registrar_..., def calcular_...).
-4. Validaciones ante entradas erróneas del usuario (try/except, verificación de rangos).
+4. Módulo de evaluación de estados aprobados (días positivos vs días de apapacho)
+   y filtrado por emoción.
+5. Validaciones robustas ante entradas erróneas del usuario (try/except, rangos).
 =============================================================================
 """
 
 import datetime
 
 # --- Estructura de Datos Inicial (Lista de Diccionarios) ---
-# Pre-cargamos algunos registros representativos para que el docente pueda probar de inmediato
-# las funciones de visualización y promedios sin tener que escribir todo desde cero.
 registros_diario = [
     {
         "id": 1,
@@ -52,25 +53,33 @@ registros_diario = [
         "emocion": "Motivado",
         "gratitud": "Avanzar en los proyectos de programación con mi equipo.",
         "aprobado_dia_positivo": True
+    },
+    {
+        "id": 5,
+        "usuario": "Andrés",
+        "fecha": "2026-11-03",
+        "nivel_animo": 1,
+        "emocion": "Desanimado",
+        "gratitud": "Por haber tenido un momento de silencio para respirar.",
+        "aprobado_dia_positivo": False
     }
 ]
 
 
 def mostrar_banner():
     """Imprime el encabezado artístico y amigable de Lumi el monstruito de la gratitud."""
-    print("=" * 68)
+    print("=" * 70)
     print("   🌟 DIARIO DE GRATITUD Y ESTADO DE ÁNIMO - LUMI (MOOD TRACKER) 🌟   ")
-    print("=" * 68)
+    print("=" * 70)
     print("          (\\__/)  ")
-    print("          (•ㅅ•)  Hola, soy Lumi! Tu monstrico guardián del ánimo.")
+    print("          (•ㅅ•)  ¡Hola! Soy Lumi, tu monstrico guardián del bienestar.")
     print("         / づ♥づ   Recuerda: agradecer transforma los días comunes.")
-    print("=" * 68)
+    print("=" * 70)
 
 
 def registrar_ingreso(registros):
     """
-    Solicita los datos al usuario y añade un nuevo diccionario a la lista de registros.
-    Cumple con el requerimiento de registrar ingreso / datos usando diccionarios.
+    Solicita datos al usuario y almacena un nuevo registro como diccionario en la lista.
     """
     print("\n📝 --- REGISTRAR NUEVA ENTRADA EN EL DIARIO ---")
     
@@ -79,38 +88,36 @@ def registrar_ingreso(registros):
         print("⚠️ El nombre no puede estar vacío.")
         usuario = input("👉 Ingresa tu nombre: ").strip()
 
-    # Validación de escala del ánimo (1 al 5)
     while True:
         try:
             animo = int(input("👉 ¿Cómo te sientes hoy? (Escala 1 al 5, donde 5 es Excelente): "))
             if 1 <= animo <= 5:
                 break
             else:
-                print("⚠️ Por favor ingresa un número válido entre 1 y 5.")
+                print("⚠️ Por favor ingresa un número entero entre 1 y 5.")
         except ValueError:
             print("⚠️ Entrada inválida. Debes ingresar un número entero.")
 
-    # Mapeo descriptivo según la calificación
     emociones_guia = {
-        1: "Desanimado / Requiere Apapacho",
-        2: "Pensativo / Cansado",
-        3: "Neutro / Estable",
-        4: "Calmado / Satisfecho",
-        5: "Radiante / Muy Feliz"
+        1: "Desanimado",
+        2: "Pensativo",
+        3: "Estable",
+        4: "Calmado",
+        5: "Radiante"
     }
-    emocion_sugerida = emociones_guia.get(animo, "Normal")
+    emocion_sugerida = emociones_guia.get(animo, "Estable")
     print(f"✨ Emoción detectada: [{emocion_sugerida}]")
 
     gratitud = input("🌸 Escribe al menos una cosa por la que estés agradecido(a) hoy: ").strip()
     while not gratitud:
-        print("⚠️ No olvides escribir tu motivo de gratitud; es el corazón del diario.")
+        print("⚠️ No olvides escribir tu motivo de gratitud; es fundamental para tu bienestar.")
         gratitud = input("🌸 ¿Por qué estás agradecido(a) hoy?: ").strip()
 
     fecha_hoy = datetime.date.today().strftime("%Y-%m-%d")
     nuevo_id = len(registros) + 1
-    es_positivo = animo >= 3  # Criterio base de día positivo / aprobado
+    # Criterio de aprobación: ánimo >= 3 se considera día satisfactorio/positivo
+    es_aprobado = animo >= 3
 
-    # Construcción del diccionario del registro
     nueva_entrada = {
         "id": nuevo_id,
         "usuario": usuario.capitalize(),
@@ -118,36 +125,35 @@ def registrar_ingreso(registros):
         "nivel_animo": animo,
         "emocion": emocion_sugerida,
         "gratitud": gratitud,
-        "aprobado_dia_positivo": es_positivo
+        "aprobado_dia_positivo": es_aprobado
     }
 
-    # Añadir a la lista en memoria
     registros.append(nueva_entrada)
     print(f"\n✅ ¡Entrada guardada con éxito! (ID asignado: #{nuevo_id})")
-    print(f"🐾 Lumi dice: ¡Gracias {usuario.capitalize()} por cuidar tu bienestar emocional hoy!\n")
+    if es_aprobado:
+        print(f"🎉 Lumi dice: ¡Excelente, un día positivo registrado para {usuario.capitalize()}!")
+    else:
+        print(f"💙 Lumi te manda un abrazo cálido. Mañana será una nueva oportunidad.")
 
 
 def mostrar_todas_las_entradas(registros):
-    """Recorre la lista de registros e imprime cada diccionario en formato legible."""
+    """Muestra todas las entradas guardadas en memoria en formato de tabla limpia."""
     print("\n📖 --- HISTORIAL DE ENTRADAS REGISTRADAS ---")
     if not registros:
-        print("ℹ️ Aún no hay entradas registradas en el diario.")
+        print("ℹ️ Aún no hay entradas registradas.")
         return
 
-    print(f"{'ID':<4} | {'Fecha':<10} | {'Usuario':<12} | {'Ánimo':<6} | {'Estado':<10} | {'Gratitud'}")
-    print("-" * 80)
+    print(f"{'ID':<4} | {'Fecha':<10} | {'Usuario':<12} | {'Ánimo':<6} | {'Estado':<12} | {'Gratitud'}")
+    print("-" * 85)
     for r in registros:
         estado_str = "Aprobado ⭐" if r["aprobado_dia_positivo"] else "Por Cuidar 💙"
-        print(f"#{r['id']:<3} | {r['fecha']:<10} | {r['usuario']:<12} | {r['nivel_animo']}/5    | {estado_str:<10} | {r['gratitud']}")
-    print("-" * 80)
+        print(f"#{r['id']:<3} | {r['fecha']:<10} | {r['usuario']:<12} | {r['nivel_animo']}/5    | {estado_str:<12} | {r['gratitud']}")
+    print("-" * 85)
     print(f"Total de registros: {len(registros)}\n")
 
 
 def calcular_promedio_animo(registros):
-    """
-    Calcula el promedio general de ánimo y el promedio por usuario individual.
-    Cumple con el requerimiento de cálculo de métricas/promedios.
-    """
+    """Calcula promedios de ánimo globales e individuales."""
     print("\n📊 --- REPORTE DE PROMEDIOS DE ESTADO DE ÁNIMO ---")
     if not registros:
         print("⚠️ No hay suficientes datos para calcular promedios.")
@@ -158,7 +164,6 @@ def calcular_promedio_animo(registros):
 
     print(f"📈 Promedio General de Ánimo: {promedio_general:.2f} / 5.0")
     
-    # Cálculo agrupado por usuario usando un diccionario acumulador
     usuarios_metricas = {}
     for r in registros:
         u = r["usuario"]
@@ -177,8 +182,57 @@ def calcular_promedio_animo(registros):
     return promedio_general
 
 
+def evaluar_dias_aprobados(registros):
+    """
+    Función de evaluación de aprobación emocional (feature/aprueba):
+    Calcula cuántos registros cumplen con la condición de 'Día Aprobado' (ánimo >= 3)
+    y el porcentaje de satisfacción general.
+    """
+    print("\n⭐ --- EVALUACIÓN DE DÍAS APROBADOS (BIENESTAR EMOCIONAL) ---")
+    if not registros:
+        print("⚠️ No hay registros para evaluar.")
+        return
+
+    aprobados = [r for r in registros if r["aprobado_dia_positivo"]]
+    no_aprobados = [r for r in registros if not r["aprobado_dia_positivo"]]
+    total = len(registros)
+    tasa_aprobacion = (len(aprobados) / total) * 100
+
+    print(f"Total de días evaluados: {total}")
+    print(f"✅ Días Positivos / Aprobados (Ánimo >= 3): {len(aprobados)} ({tasa_aprobacion:.1f}%)")
+    print(f"💙 Días para Autocuidado / Apapacho (Ánimo < 3): {len(no_aprobados)} ({100 - tasa_aprobacion:.1f}%)")
+    
+    print("\n📋 Listado de Días Aprobados (Bienestar Óptimo):")
+    for r in aprobados:
+        print(f"  • [ID #{r['id']}] {r['usuario']} el {r['fecha']} (Ánimo {r['nivel_animo']}/5) -> \"{r['gratitud']}\"")
+
+    if tasa_aprobacion >= 70:
+        print("\n🎉 Mensaje de Lumi: ¡Tu comunidad tiene un índice de bienestar sobresaliente! Sigan así.")
+    else:
+        print("\n🤗 Mensaje de Lumi: Hay días difíciles, pero cada momento de gratitud cuenta. ¡Abrazo grupal!")
+
+
+def filtrar_por_emocion(registros):
+    """Permite filtrar entradas específicas por palabra clave en la emoción o gratitud."""
+    print("\n🔍 --- FILTRAR ENTRADAS POR PALABRA CLAVE ---")
+    filtro = input("👉 Ingresa la emoción o palabra a buscar (ej: Radiante, Calmado, familia): ").strip().lower()
+    
+    resultados = [
+        r for r in registros 
+        if filtro in r["emocion"].lower() or filtro in r["gratitud"].lower() or filtro in r["usuario"].lower()
+    ]
+    
+    if not resultados:
+        print(f"ℹ️ No se encontraron coincidencias para '{filtro}'.")
+        return
+        
+    print(f"\nSe encontraron {len(resultados)} resultado(s):")
+    for r in resultados:
+        print(f"  • #{r['id']} | {r['usuario']} ({r['fecha']}) - Ánimo {r['nivel_animo']}/5 [{r['emocion']}]: {r['gratitud']}")
+
+
 def menu_principal():
-    """Bucle principal (while) de la aplicación de consola interactiva."""
+    """Bucle interactivo principal con opciones completas de los requerimientos."""
     mostrar_banner()
     
     while True:
@@ -186,9 +240,11 @@ def menu_principal():
         print("1. 📝 Registrar Nueva Entrada (Ánimo & Gratitud)")
         print("2. 📖 Ver Todas las Entradas Registradas")
         print("3. 📊 Ver Promedio y Estadísticas de Ánimo")
-        print("4. 🚪 Salir")
+        print("4. ⭐ Evaluar Días Aprobados (Métrica de Bienestar)")
+        print("5. 🔍 Filtrar Entradas por Emoción o Palabra Clave")
+        print("6. 🚪 Salir")
         
-        opcion = input("👉 Selecciona una opción (1-4): ").strip()
+        opcion = input("👉 Selecciona una opción (1-6): ").strip()
         
         if opcion == "1":
             registrar_ingreso(registros_diario)
@@ -197,10 +253,14 @@ def menu_principal():
         elif opcion == "3":
             calcular_promedio_animo(registros_diario)
         elif opcion == "4":
+            evaluar_dias_aprobados(registros_diario)
+        elif opcion == "5":
+            filtrar_por_emocion(registros_diario)
+        elif opcion == "6":
             print("\n👋 ¡Gracias por usar Lumi Mood Tracker! Recuerda agradecer cada día. ¡Hasta pronto!")
             break
         else:
-            print("⚠️ Opción no válida. Por favor digita un número del 1 al 4.")
+            print("⚠️ Opción no válida. Por favor digita un número del 1 al 6.")
 
 
 if __name__ == "__main__":
