@@ -36,3 +36,6 @@ yarn-error.log*
 # Permitir explícitamente los CSVs del proyecto en data/
 !data/*.csv
 !data/*.json
+
+# Repositorios independientes generados para entregas individuales
+repos_separados/
