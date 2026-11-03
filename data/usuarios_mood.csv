@@ -1,0 +1,56 @@
+id_usuario,nombre_completo,edad,ciudad,categoria_ocupacion,fecha_registro
+1,Carolina Morales,35,Envigado,  investigador,2026-02-21
+2,Mateo Restrepo,39,  bogota,profesional,2026-07-18
+3,Valentina Gómez,49,PEREIRA,independiente  ,2026-03-28
+4,Andrés Felipe,43,Cali   ,ESTUDIANTE,2026-02-28
+5,Sofía Ramírez,48,  bogota,ESTUDIANTE,2026-04-24
+6,Santiago López,38,  bogota,profesional,2026-03-25
+7,Camila Torres,, Manizales ,independiente  ,2026-08-09
+8,Daniel Castro,46,  bogota,  investigador,2026-08-21
+9,Mariana Vargas,23, Manizales ,Desarrollador,2026-05-25
+10,Sebastián Herrera,49,  Cartagena  ,  Estudiante,2026-09-07
+11,Lucía Mendoza,42,PEREIRA,profesional,2026-06-23
+12,Alejandro Morales,43,  Medellin ,,2026-09-21
+13,Valeria Rojas,30,Bucaramanga,Emprendedor ,2026-08-04
+14,Nicolás Ospina,28,PEREIRA,independiente  ,2026-08-24
+15,Paula Aguirre,23,Bucaramanga,Emprendedor ,2026-01-28
+16,Felipe Salazar,46, Manizales ,profesional,2026-08-28
+17,Gabriela Duarte,53,Envigado,profesional,2026-06-19
+18,Esteban Cárdenas,36,Bucaramanga,Docente ,2026-08-08
+19,Isabella Cruz,55,Envigado,  Estudiante,2026-05-24
+20,Julián Pineda,26,PEREIRA,Emprendedor ,2026-02-10
+21,Laura Quintero,53,BOGOTA,  investigador,2026-07-16
+22,Samuel Bedoya,31, Manizales ,Desarrollador,2026-06-12
+23,Manuela Henao,,  Medellin ,  Estudiante,2026-04-14
+24,David Marín,46,Envigado,  Estudiante,2026-06-05
+25,Sara Giraldo,34,BOGOTA,Desarrollador,2026-08-18
+26,Martín Echeverri,25,Envigado,Desarrollador,2026-05-09
+27,Catalina Montoya,39,  Medellin ,Docente ,2026-09-05
+28,Jerónimo Londoño,38,BOGOTA,  investigador,2026-03-26
+29,Salomé Cardona,23,BOGOTA,  investigador,2026-01-08
+30,Tomás Arango,43,  bogota,  investigador,2026-05-11
+31,Antonella Vélez,44,Envigado,ESTUDIANTE,2026-05-27
+32,Cristian Cano,19,  bogota,independiente  ,2026-02-22
+33,Emilia Jaramillo,42,Cali   ,independiente  ,2026-02-08
+34,Matías Villa,30,Barranquilla,ESTUDIANTE,2026-09-23
+35,Elena Bustamante,20, Manizales ,ESTUDIANTE,2026-10-07
+36,Ignacio Hoyos,44,  Cartagena  ,  Estudiante,2026-10-07
+37,Violeta Zapata,55,  bogota,ESTUDIANTE,2026-07-24
+38,Lucas Correa,38,PEREIRA,,2026-05-09
+39,Victoria Serna,54,BOGOTA,Desarrollador,2026-04-09
+40,Joaquín Botero,42,  bogota,Desarrollador,2026-10-11
+41,Celeste Ocampo,47,BOGOTA,Desarrollador,2026-05-09
+42,Simón Uribe,26,Barranquilla,ESTUDIANTE,2026-05-16
+43,Abril Gil,49,  Cartagena  ,  Estudiante,2026-10-03
+44,Manuel Zuluaga,,Bucaramanga,independiente  ,2026-04-26
+45,Helena Castaño,20,BOGOTA,  Estudiante,2026-05-27
+46,Álvaro Cuartas,47,Barranquilla,Docente ,2026-08-07
+47,Renata Palacio,38,  Medellin ,independiente  ,2026-01-02
+48,Gabriel Tamayo,43,Envigado,independiente  ,2026-07-12
+49,Paloma Barrientos,37,  bogota,Docente ,2026-05-02
+50,Benjamín Hincapié,24, Manizales ,  Estudiante,2026-10-01
+51,Renzo Duque,52,Cali   ,Docente ,2026-03-01
+52,Alana Carvajal,20,  Cartagena  ,profesional,2026-05-19
+53,Thiago Flórez,45,Barranquilla,  Estudiante,2026-05-08
+54,Amalia Tabares,37,Envigado,ESTUDIANTE,2026-03-28
+55,Facundo Guzmán,38, Manizales ,independiente  ,2026-03-11

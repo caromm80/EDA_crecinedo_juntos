@@ -1,0 +1,86 @@
+id_registro,id_usuario,fecha,nivel_animo,emocion_principal,motivo_gratitud,horas_sueno,nivel_energia
+101,1,2026-11-28,4,radiante,Por una caminata matutina y respirar aire fresco.,7.8,%
+102,1,2026-10-03,5,  sereno,Por aprender nuevas habilidades en programación Python.,6.8,  95%  
+103,1,2026-11-06,3,  desanimado  ,Por el apoyo y la paciencia de mis compañeros de equipo.,9.2,90%
+104,1,2026-10-20,4,PENSATIVO,Por el desayuno compartido con mi familia.,6.8,%
+105,1,2026-10-21, 4 ,  ALEGRE ,Por una buena noche de descanso y paz mental.,,%
+106,1,2026-11-26,3,radiante,Por una buena noche de descanso y paz mental.,9.1,%
+107,2,2026-11-23,2,agradecido,Por poder disfrutar de mi música favorita mientras estudio.,8.9,80%
+108,2,2026-11-05,2,  desanimado  ,Por el apoyo y la paciencia de mis compañeros de equipo.,7.4,%
+109,2,2026-11-13,2,  calmado ,Por la salud y bienestar de mis seres queridos.,7.0,%
+110,2,2026-10-28, 2 ,  calmado ,Por haber tenido tiempo libre para leer un buen libro.,6.6,90%
+111,3,2026-11-13,4,agradecido,Por la salud y bienestar de mis seres queridos.,5.8,100%
+112,3,2026-10-28,4,radiante,Por haber tenido tiempo libre para leer un buen libro.,8.9,%
+113,4,2026-11-25,2,  sereno,Por el desayuno compartido con mi familia.,6.8,%
+114,4,2026-10-17,4,radiante,Por haber tenido tiempo libre para leer un buen libro.,6.0,100%
+115,4,2026-10-20, 2 ,  calmado ,Por la salud y bienestar de mis seres queridos.,9.3,100%
+116,5,2026-11-01,3,radiante,Agradecida por la llamada de un amigo de la infancia.,8.9,%
+117,5,2026-10-08,2,radiante,Agradecido por terminar el sprint del proyecto con éxito.,8.2,90%
+118,41,2026-10-25,2,agradecido,Por la salud y bienestar de mis seres queridos.,5.3,100%
+119,8,2026-11-28,5,PENSATIVO,Por el apoyo y la paciencia de mis compañeros de equipo.,6.1,  95%  
+120,2,2026-11-15, 2 ,PENSATIVO,Agradecido por terminar el sprint del proyecto con éxito.,6.2,%
+121,48,2026-10-18,4,  ALEGRE ,Agradecido por terminar el sprint del proyecto con éxito.,8.0,%
+122,18,2026-10-08,5,Motivado,Agradecido por terminar el sprint del proyecto con éxito.,,100%
+123,16,2026-11-08,4,PENSATIVO,Por la salud y bienestar de mis seres queridos.,5.2,%
+124,15,2026-11-19,2,agradecido,Por poder disfrutar de mi música favorita mientras estudio.,5.5,90%
+125,9,2026-11-22, 3 ,  sereno,Por un café caliente en una tarde lluviosa.,8.8,%
+126,48,2026-10-22,1,Motivado,Agradecido por terminar el sprint del proyecto con éxito.,5.7,60%
+127,7,2026-11-18,2,  calmado ,Por aprender nuevas habilidades en programación Python.,6.8,90%
+128,44,2026-10-15,1,  ALEGRE ,Agradecido por terminar el sprint del proyecto con éxito.,9.1,60%
+129,48,2026-11-06,3,PENSATIVO,Por poder disfrutar de mi música favorita mientras estudio.,9.0,
+130,35,2026-10-13, 5 ,  desanimado  ,Por un café caliente en una tarde lluviosa.,5.9,100%
+131,6,2026-11-22,2,  desanimado  ,Por una buena noche de descanso y paz mental.,9.3,%
+132,38,2026-10-24,4,  ALEGRE ,Por una caminata matutina y respirar aire fresco.,7.4,100%
+133,28,2026-10-28,1,radiante,Por el desayuno compartido con mi familia.,4.8,90%
+134,3,2026-10-22,3,PENSATIVO,Agradecido por las oportunidades de crecer ante la adversidad.,7.5,%
+135,2,2026-11-03, 4 ,Motivado,Por aprender nuevas habilidades en programación Python.,5.5,  95%  
+136,6,2026-11-08,3,  desanimado  ,Por un café caliente en una tarde lluviosa.,6.1,90%
+137,14,2026-11-01,4,radiante,Agradecido por terminar el sprint del proyecto con éxito.,7.2,100%
+138,15,2026-10-09,5,radiante,Por una buena noche de descanso y paz mental.,6.3,
+139,33,2026-11-15,4,  ALEGRE ,Por haber tenido tiempo libre para leer un buen libro.,8.6,%
+140,39,2026-10-22, 5 ,  calmado ,Por aprender nuevas habilidades en programación Python.,5.1,90%
+141,2,2026-10-24,3,PENSATIVO,Por el apoyo y la paciencia de mis compañeros de equipo.,6.2,%
+142,36,2026-11-17,3,  ALEGRE ,Agradecido por terminar el sprint del proyecto con éxito.,7.7,%
+143,13,2026-10-02,3,  calmado ,Por haber tenido tiempo libre para leer un buen libro.,9.4,
+144,46,2026-11-24,4,  sereno,Por la salud y bienestar de mis seres queridos.,4.5,90%
+145,42,2026-10-23, 4 ,Motivado,Agradecido por las oportunidades de crecer ante la adversidad.,7.3,
+146,45,2026-10-05,3,  ALEGRE ,Agradecida por la llamada de un amigo de la infancia.,5.6,60%
+147,35,2026-10-22,3,  sereno,Agradecido por las oportunidades de crecer ante la adversidad.,8.2,60%
+148,27,2026-10-28,5,  calmado ,Por poder disfrutar de mi música favorita mientras estudio.,4.6,  95%  
+149,15,2026-11-26,5,PENSATIVO,Por aprender nuevas habilidades en programación Python.,5.3,90%
+150,29,2026-10-13, 5 ,PENSATIVO,Por una buena noche de descanso y paz mental.,8.6,80%
+151,38,2026-11-12,5,PENSATIVO,Por una buena noche de descanso y paz mental.,4.6,60%
+152,18,2026-11-13,3,radiante,Por aprender nuevas habilidades en programación Python.,6.3,100%
+153,52,2026-11-13,5,radiante,Por aprender nuevas habilidades en programación Python.,5.4,%
+154,1,2026-10-02,4,Motivado,Por el apoyo y la paciencia de mis compañeros de equipo.,8.4,
+155,49,2026-10-20, 3 ,PENSATIVO,Por aprender nuevas habilidades en programación Python.,4.7,
+156,52,2026-10-01,3,radiante,Por haber tenido tiempo libre para leer un buen libro.,9.1,%
+157,11,2026-10-11,4,  desanimado  ,Por la salud y bienestar de mis seres queridos.,6.0,
+158,45,2026-11-11,4,  calmado ,Por una buena noche de descanso y paz mental.,6.6,
+159,28,2026-10-22,4,  desanimado  ,Por poder disfrutar de mi música favorita mientras estudio.,7.2,%
+160,22,2026-11-10, 2 ,Motivado,Por un café caliente en una tarde lluviosa.,,80%
+161,18,2026-10-15,4,  calmado ,Por haber tenido tiempo libre para leer un buen libro.,4.9,100%
+162,10,2026-11-22,1,PENSATIVO,Por haber tenido tiempo libre para leer un buen libro.,6.1,60%
+163,14,2026-10-05,1,agradecido,Agradecido por las oportunidades de crecer ante la adversidad.,8.7,90%
+164,49,2026-11-15,5,PENSATIVO,Por el apoyo y la paciencia de mis compañeros de equipo.,8.0,80%
+165,22,2026-10-13, 2 ,  ALEGRE ,Agradecido por terminar el sprint del proyecto con éxito.,8.4,60%
+166,7,2026-11-06,1,PENSATIVO,Agradecido por terminar el sprint del proyecto con éxito.,6.8,80%
+167,6,2026-11-22,5,agradecido,Agradecido por las oportunidades de crecer ante la adversidad.,8.6,100%
+168,25,2026-11-14,5,agradecido,Por un café caliente en una tarde lluviosa.,5.8,60%
+169,7,2026-11-27,4,agradecido,Por haber tenido tiempo libre para leer un buen libro.,5.7,80%
+170,23,2026-11-03, 2 ,Motivado,Agradecida por la llamada de un amigo de la infancia.,9.0,90%
+171,55,2026-10-05,2,  calmado ,Por el apoyo y la paciencia de mis compañeros de equipo.,5.6,
+172,23,2026-11-14,4,  sereno,Por una caminata matutina y respirar aire fresco.,5.5,
+173,39,2026-10-13,5,  sereno,Por un café caliente en una tarde lluviosa.,4.5,  95%  
+174,17,2026-11-10,5,  sereno,Por la salud y bienestar de mis seres queridos.,8.2,100%
+175,52,2026-10-26, 3 ,  desanimado  ,Por poder disfrutar de mi música favorita mientras estudio.,6.9,
+176,3,2026-11-11,4,agradecido,Por el desayuno compartido con mi familia.,9.4,100%
+177,47,2026-11-01,4,  ALEGRE ,Agradecido por terminar el sprint del proyecto con éxito.,7.7,
+178,30,2026-11-28,2,  desanimado  ,Por poder disfrutar de mi música favorita mientras estudio.,6.1,80%
+179,35,2026-11-11,4,  sereno,Por aprender nuevas habilidades en programación Python.,8.3,
+180,8,2026-10-09, 3 ,  ALEGRE ,Agradecida por la llamada de un amigo de la infancia.,5.6,90%
+181,25,2026-10-25,4,PENSATIVO,Por una buena noche de descanso y paz mental.,8.7,%
+182,6,2026-10-05,2,radiante,Agradecido por las oportunidades de crecer ante la adversidad.,9.2,80%
+183,36,2026-11-23,4,  calmado ,Agradecido por las oportunidades de crecer ante la adversidad.,7.5,90%
+184,19,2026-10-25,5,radiante,Agradecido por las oportunidades de crecer ante la adversidad.,4.6,%
+185,54,2026-11-19, 3 ,PENSATIVO,Agradecido por terminar el sprint del proyecto con éxito.,7.5,60%
